@@ -43,11 +43,12 @@ async def handle_dice(message: types.Message):
         await msg.delete()
         return
     
-@dp.message_handler()
+@dp.message_handler(commands=['hi'])
 async def handle_dice(message: types.Message):
     photos = await message.from_user.get_profile_photos()
     latest_photo = photos.photos[0][0]
 
     msg = await message.answer_photo(latest_photo.file_id)
-    await asyncio.sleep(5)
+    await asyncio.sleep(1)
+    await message.delete()
     await msg.delete()

@@ -34,7 +34,6 @@ async def handle_dice(message: types.Message):
         if message.from_user.id in ADMINS: 
             await message.answer('You are my master!')
             await message.answer(f'МАЭСТРО БРАВО!! {message.dice.value} очка!!')
-            print(await message.from_user.get_user_profile_photos())
             return 
         
         msg = await bot.send_message(message.chat.id, f'You are not my master! Пососи @{message.from_user.username} !!!')

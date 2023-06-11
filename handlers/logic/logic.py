@@ -1,4 +1,4 @@
-import typing, json, os
+import typing, json, os, asyncio
 
 from aiogram import types
 from aiogram.dispatcher.filters import CommandStart, Text
@@ -10,6 +10,32 @@ from loader import dp, bot
 from messages import *
 
 FILE_PATH = "user_data.json"
+
+
+async def getActiveGame(message: types.Message, PATH_FILE):
+    data = None
+    game_active = False
+    with open(PATH_FILE, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == message.chat.id):
+            game_active = chat['game_active']
+    return game_active
+
+async def setActiveGame(callback_query: types.CallbackQuery, PATH_FILE, game_active):
+    data = None
+    with open(PATH_FILE, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == callback_query.message.chat.id):
+            chat['game_active'] = game_active
+
+    
+    with open(PATH_FILE, "w") as file:
+        json.dump(data, file, indent=4)
+    return
 
 def read_user_data():
     try:
@@ -27,7 +53,6 @@ async def select_info_user(message: types.Message):
     # Получение информации о пользователе
     user_id = message.from_user.id
     user = message.from_user
-
 
     data = read_user_data()
 
@@ -74,3 +99,8 @@ async def select_info_user(message: types.Message):
 
     return
 
+async def joinGameCallback(callback_query: types.CallbackQuery):
+    await callback_query.answer('хуй')
+    
+    message = callback_query.message.text
+    print(message)

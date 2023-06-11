@@ -22,6 +22,51 @@
                 "data": "\"2023-06-11 15:42:53\"",
                 "chat_id": -1001974916014,
                 "value_dice": 4
+            },
+            {
+                "data": "\"2023-06-11 15:51:40\"",
+                "chat_id": -1001982372894,
+                "value_dice": 1
+            },
+            {
+                "data": "\"2023-06-11 15:51:49\"",
+                "chat_id": -1001982372894,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:06:50\"",
+                "chat_id": -1001974916014,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:07:13\"",
+                "chat_id": -1001974916014,
+                "value_dice": 1
+            },
+            {
+                "data": "\"2023-06-11 17:08:24\"",
+                "chat_id": -1001974916014,
+                "value_dice": 4
+            },
+            {
+                "data": "\"2023-06-11 17:10:33\"",
+                "chat_id": -1001974916014,
+                "value_dice": 2
+            },
+            {
+                "data": "\"2023-06-11 17:27:56\"",
+                "chat_id": -1001974916014,
+                "value_dice": 4
+            },
+            {
+                "data": "\"2023-06-11 19:05:36\"",
+                "chat_id": -1001974916014,
+                "value_dice": 3
+            },
+            {
+                "data": "\"2023-06-11 21:42:50\"",
+                "chat_id": -1001974916014,
+                "value_dice": 1
             }
         ]
     },
@@ -53,7 +98,18 @@
         "supports_inline_queries": null,
         "last_emoji": "\ud83c\udfc0",
         "first_score": 3,
-        "values_dice": []
+        "values_dice": [
+            {
+                "data": "\"2023-06-11 17:07:33\"",
+                "chat_id": -1001974916014,
+                "value_dice": 4
+            },
+            {
+                "data": "\"2023-06-11 19:25:44\"",
+                "chat_id": -1001974916014,
+                "value_dice": 4
+            }
+        ]
     },
     {
         "id": 1442364592,
@@ -69,5 +125,72 @@
         "last_emoji": "\ud83c\udfc0",
         "first_score": 1,
         "values_dice": []
+    },
+    {
+        "id": 782334098,
+        "username": "nxvrmxnd",
+        "first_name": "//////////////////////////////",
+        "last_name": null,
+        "language_code": null,
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "first_score": 3,
+        "values_dice": [
+            {
+                "data": "\"2023-06-11 17:22:43\"",
+                "chat_id": -1001974916014,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:22:57\"",
+                "chat_id": -1001974916014,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:23:27\"",
+                "chat_id": -1001974916014,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:23:46\"",
+                "chat_id": -1001974916014,
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 17:23:59\"",
+                "chat_id": -1001974916014,
+                "value_dice": 2
+            },
+            {
+                "data": "\"2023-06-11 17:24:58\"",
+                "chat_id": -1001974916014,
+                "value_dice": 1
+            }
+        ]
+    },
+    {
+        "id": 1367888484,
+        "username": "Lenivez8",
+        "first_name": "\u0414\u0435\u043d\u0447\u0438\u043a",
+        "last_name": null,
+        "language_code": "ru",
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "first_score": 1,
+        "values_dice": [
+            {
+                "data": "\"2023-06-11 17:28:54\"",
+                "chat_id": -1001974916014,
+                "value_dice": 4
+            }
+        ]
     }
 ]

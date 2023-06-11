@@ -1,4 +1,4 @@
-import os, asyncio
+import os, asyncio, json
 
 from aiogram import types
 from aiogram.dispatcher.filters import CommandStart, Text
@@ -6,9 +6,10 @@ from aiogram.dispatcher.filters import CommandStart, Text
 from loader import dp, bot
 from messages import *
 from config import ADMINS
-from handlers.logic.logic import select_info_user
+from handlers.logic.logic import select_info_user, getActiveGame, setActiveGame
 
-game_active = False
+
+FILE_PATH_GAME = "data\\games_data.json"
 
 scores = {}
 
@@ -23,24 +24,40 @@ async def anti_flood(*args, **kwargs):
 
 
 @dp.message_handler(CommandStart())
-@dp.throttled(anti_flood, rate=25)
+@dp.throttled(anti_flood, rate=5)
 async def start_command_handler(message: types.Message):
-    global game_active
 
-    if (not game_active):
+    game_info = {
+        'chat_id': message.chat.id,
+        'invite_link': message.chat.invite_link,
+        'game_active': False,
+        'game': 
+        [{
+            'players': [],
+            'rounds' : []
+        }]
+    }
+
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    user_exists = any(int(chat["chat_id"]) == message.chat.id for chat in data)
+    if user_exists:
         return
-    
-    scores.clear()
-    await message.reply("Добро пожаловать в турнир по бросанию emoji баскетбольного мяча! "
-                        "Чтобы бросить мяч, просто отправьте его в чат.")
+
+    data.append(game_info)
+
+    with open(FILE_PATH_GAME, 'w') as file:
+        json.dump(data, file, indent=4)
+
 
 @dp.message_handler(content_types=types.ContentType.DICE)
 async def handle_dice(message: types.Message):
     if (message.chat.type == "private"):
         return
     
-    global game_active
-
+    game_active = await getActiveGame(message, FILE_PATH_GAME)
     if (not game_active):
         return
     
@@ -48,14 +65,13 @@ async def handle_dice(message: types.Message):
         await select_info_user(message)
 
         player_name = message.from_user.username or message.from_user.first_name
-        msg = None
 
-        await asyncio.sleep(4)
+        #await asyncio.sleep(4)
 
         scores[player_name] = scores.get(player_name, 0) + message.dice.value
-        msg = await message.reply(f"Отлично, {player_name}! Вы набрали {message.dice.value} {format_score(message.dice.value)}. У вас всего {scores[player_name]} {format_score(message.dice.value)}.")
-        await asyncio.sleep(2)
-        await msg.delete()
+        #msg = await message.reply(f"Отлично, {player_name}! Вы набрали {message.dice.value} {format_score(message.dice.value)}. У вас всего {scores[player_name]} {format_score(message.dice.value)}.")
+        await asyncio.sleep(10)
+        #await msg.delete()
         await message.delete()
         
     
@@ -72,23 +88,6 @@ async def handle_dice(message: types.Message):
         #return
 
 
-@dp.callback_query_handler(lambda c: True)
-async def inline_button_handler(callback_query: types.CallbackQuery):
-
-    global game_active
-
-    if callback_query.from_user.id not in ADMINS:
-        await callback_query.answer("У вас нет прав!")
-        return
-
-    if callback_query.data == "startGame":
-        game_active = True
-        await callback_query.answer("Вы запустили игру")
-
-    elif callback_query.data == "stopGame":
-        game_active = False
-        await callback_query.answer("Вы закончили игру")
-    
 
 
 

@@ -14,25 +14,60 @@
         "last_score": 2,
         "values_dice": [
             {
-                "data": "\"2023-06-11 15:34:45\"",
-                "value_dice": 5
-            },
-            {
-                "data": "\"2023-06-11 15:34:56\"",
-                "value_dice": 1
-            },
-            {
-                "data": "\"2023-06-11 15:35:31\"",
+                "data": "\"2023-06-11 15:41:55\"",
+                "chat_id": -1001982372894,
                 "value_dice": 3
             },
             {
-                "data": "\"2023-06-11 15:35:35\"",
-                "value_dice": 5
-            },
-            {
-                "data": "\"2023-06-11 15:35:46\"",
+                "data": "\"2023-06-11 15:42:53\"",
+                "chat_id": -1001974916014,
                 "value_dice": 4
             }
         ]
+    },
+    {
+        "id": 472259322,
+        "username": "Bltard",
+        "first_name": "Apr",
+        "last_name": "Aerg",
+        "language_code": "ru",
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "first_score": 4,
+        "values_dice": []
+    },
+    {
+        "id": 875272633,
+        "username": "dedushaistele2",
+        "first_name": "\u0414\u0435\u0434 \ud83e\udd72",
+        "last_name": null,
+        "language_code": "ru",
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "first_score": 3,
+        "values_dice": []
+    },
+    {
+        "id": 1442364592,
+        "username": "M0sser",
+        "first_name": "\u0421\u0435\u0440\u0433\u0435\u0439",
+        "last_name": "\u0411\u0440\u043e\u0434\u0441\u043a\u0438\u0439",
+        "language_code": null,
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "first_score": 1,
+        "values_dice": []
     }
 ]

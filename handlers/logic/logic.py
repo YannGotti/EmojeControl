@@ -39,7 +39,7 @@ async def select_info_user(message: types.Message):
 
         for user in data:
             if(user["id"] == user_id):
-                user["values_dice"].append({"data" : json.dumps(message.date, default=str), 'value_dice': message.dice.value})
+                user["values_dice"].append({"data" : json.dumps(message.date, default=str),'chat_id': message.chat.id, 'value_dice': message.dice.value})
 
         with open(FILE_PATH, "w") as file:
             json.dump(data, file, indent=4)

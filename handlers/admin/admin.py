@@ -9,6 +9,8 @@ from loader import dp, bot
 from messages import *
 from config import ADMINS
 
+from keyboards.inline import adminKey
+
 async def anti_flood(*args, **kwargs):
     message = args[0]
     await message.delete()
@@ -18,5 +20,9 @@ async def anti_flood(*args, **kwargs):
 @dp.throttled(anti_flood, rate=0)
 async def admin_panel(message: types.Message):
     await message.delete()
-    await message.answer("Админ панель")
+    await message.answer("Админ панель", reply_markup=adminKey)
+
+
+
+    
 

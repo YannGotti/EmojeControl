@@ -7,7 +7,9 @@ adminKey.add(
 )
 
 
-joinGame = types.InlineKeyboardMarkup(row_width=1)
-joinGame.add(
-    types.InlineKeyboardButton("Присоединиться", callback_data="joinGame", parse_mode=types.ParseMode.HTML)
+keyJoinGame = types.InlineKeyboardMarkup(row_width=1)
+keyJoinGame.add(
+    types.InlineKeyboardButton("Присоединиться", callback_data="joinGame", parse_mode=types.ParseMode.HTML),
+    types.InlineKeyboardButton("Начать игру", callback_data="goGame", parse_mode=types.ParseMode.HTML)
+
 )

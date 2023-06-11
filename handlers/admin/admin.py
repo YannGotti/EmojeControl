@@ -1,4 +1,4 @@
-import os
+import os, asyncio
 import typing
 from aiogram import types
 from aiogram.dispatcher.filters import CommandStart, Text
@@ -10,7 +10,7 @@ from messages import *
 from config import ADMINS
 
 from keyboards.inline import *
-from handlers.logic.logic import setActiveGame, joinGameCallback
+from handlers.logic.logic import setActiveGame, joinGameCallback, addChatToJson, getActiveGame, goGameCallback
 
 FILE_PATH_GAME = "data\\games_data.json"
 
@@ -24,30 +24,36 @@ async def anti_flood(*args, **kwargs):
 @dp.throttled(anti_flood, rate=0)
 async def admin_panel(message: types.Message):
     await message.delete()
+    await addChatToJson(message)
     await message.answer("Админ панель", reply_markup=adminKey)
 
 @dp.message_handler(commands=['startgame'], user_id=ADMINS)
 @dp.throttled(anti_flood, rate=0)
 async def startgame(message: types.Message):
     await message.delete()
-    await message.answer("Игра начинается, залетаааем.", reply_markup=joinGame)
+    if (not await getActiveGame(message)):
+        mess = await message.answer("Вы не открыли игру!")
+        await asyncio.sleep(3)
+        await mess.delete()
+        return
+
+
+    await message.answer("Игра начинается, залетаааем.", reply_markup=keyJoinGame)
 
 
 @dp.callback_query_handler(lambda c: True)
 async def inline_button_handler(callback_query: types.CallbackQuery):
 
-    if callback_query.from_user.id not in ADMINS:
-        await callback_query.answer("У вас нет прав!")
-        return
-
-    if callback_query.data == "startGame":
+    if callback_query.data == "startGame" and callback_query.from_user.id in ADMINS:
         await setActiveGame(callback_query, FILE_PATH_GAME, True)
         await callback_query.answer("Вы запустили игру")
 
-    elif callback_query.data == "stopGame":
+    elif callback_query.data == "stopGame" and callback_query.from_user.id in ADMINS:
         await setActiveGame(callback_query, FILE_PATH_GAME, False)
         await callback_query.answer("Вы закончили игру")
 
     elif callback_query.data == "joinGame":
         await joinGameCallback(callback_query)
 
+    elif callback_query.data == "goGame" and callback_query.from_user.id in ADMINS:
+        await goGameCallback(callback_query)

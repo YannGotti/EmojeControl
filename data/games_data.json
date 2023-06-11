@@ -5,7 +5,36 @@
         "game_active": true,
         "game": [
             {
-                "players": [],
+                "players": [
+                    {
+                        "id": 793228987,
+                        "username": "mironovvvc"
+                    }
+                ],
+                "rounds": []
+            }
+        ]
+    },
+    {
+        "chat_id": -1001974916014,
+        "invite_link": null,
+        "game_active": true,
+        "game": [
+            {
+                "players": [
+                    {
+                        "id": 793228987,
+                        "username": "mironovvvc"
+                    },
+                    {
+                        "id": 875272633,
+                        "username": "dedushaistele2"
+                    },
+                    {
+                        "id": 779118358,
+                        "username": "glavnoe_ctobi_ydobno_bilo"
+                    }
+                ],
                 "rounds": []
             }
         ]

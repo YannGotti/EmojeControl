@@ -6,10 +6,9 @@ from aiogram.dispatcher.filters import CommandStart, Text
 from loader import dp, bot
 from messages import *
 from config import ADMINS
-from handlers.logic.logic import select_info_user, getActiveGame, setActiveGame
+from handlers.logic.logic import select_info_user, getActiveGame, addChatToJson
 
-
-FILE_PATH_GAME = "data\\games_data.json"
+from handlers.logic.logic import FILE_PATH_GAME
 
 scores = {}
 
@@ -26,30 +25,7 @@ async def anti_flood(*args, **kwargs):
 @dp.message_handler(CommandStart())
 @dp.throttled(anti_flood, rate=5)
 async def start_command_handler(message: types.Message):
-
-    game_info = {
-        'chat_id': message.chat.id,
-        'invite_link': message.chat.invite_link,
-        'game_active': False,
-        'game': 
-        [{
-            'players': [],
-            'rounds' : []
-        }]
-    }
-
-    data = None
-    with open(FILE_PATH_GAME, "r") as file:
-        data = json.load(file)
-
-    user_exists = any(int(chat["chat_id"]) == message.chat.id for chat in data)
-    if user_exists:
-        return
-
-    data.append(game_info)
-
-    with open(FILE_PATH_GAME, 'w') as file:
-        json.dump(data, file, indent=4)
+    await addChatToJson(message)
 
 
 @dp.message_handler(content_types=types.ContentType.DICE)

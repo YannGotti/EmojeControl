@@ -1,0 +1,38 @@
+[
+    {
+        "id": 793228987,
+        "username": "mironovvvc",
+        "first_name": "\u041c\u0438\u0440\u043e\u043d",
+        "last_name": null,
+        "language_code": "ru",
+        "is_bot": false,
+        "is_premium": null,
+        "can_join_groups": null,
+        "can_read_all_group_messages": null,
+        "supports_inline_queries": null,
+        "last_emoji": "\ud83c\udfc0",
+        "last_score": 2,
+        "values_dice": [
+            {
+                "data": "\"2023-06-11 15:34:45\"",
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 15:34:56\"",
+                "value_dice": 1
+            },
+            {
+                "data": "\"2023-06-11 15:35:31\"",
+                "value_dice": 3
+            },
+            {
+                "data": "\"2023-06-11 15:35:35\"",
+                "value_dice": 5
+            },
+            {
+                "data": "\"2023-06-11 15:35:46\"",
+                "value_dice": 4
+            }
+        ]
+    }
+]

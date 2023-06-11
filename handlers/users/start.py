@@ -6,6 +6,7 @@ from aiogram.dispatcher.filters import CommandStart, Text
 from loader import dp, bot
 from messages import *
 from config import ADMINS
+from handlers.logic.logic import select_info_user
 
 game_active = False
 
@@ -44,7 +45,8 @@ async def handle_dice(message: types.Message):
         return
     
     if message.dice.emoji == "🏀":
-        player_id = message.from_user.id
+        await select_info_user(message)
+
         player_name = message.from_user.username or message.from_user.first_name
         msg = None
 

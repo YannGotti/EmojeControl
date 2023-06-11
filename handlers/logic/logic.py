@@ -9,21 +9,29 @@ from aiogram.utils.exceptions import MessageNotModified
 
 from keyboards.inline import *
 
+from states import *
+
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher import FSMContext
+
 FILE_PATH = "user_data.json"
 FILE_PATH_GAME = "data\\games_data.json"
-
-
 
 
 async def addChatToJson(message: types.Message):
     game_info = {
         'chat_id': message.chat.id,
+        'message_id' : -1,
         'invite_link': message.chat.invite_link,
         'game_active': False,
         'game': 
         [{
             'players': [],
-            'rounds' : []
+            'rounds' : [],
+            'stats': [],
+            'round': -1,
+            'action_user' : 0,
+            'current_fight' : 0,
         }]
     }
 
@@ -39,6 +47,34 @@ async def addChatToJson(message: types.Message):
 
     with open(FILE_PATH_GAME, 'w') as file:
         json.dump(data, file, indent=4)
+
+async def setMessageIdGame(chat_id, message_id):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            chat['message_id'] = message_id
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+    return
+
+
+async def getMessageIdGame(chat_id):
+    message_id = None
+    round = -1
+
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            message_id = chat['message_id']
+
+    return message_id
 
 async def getActiveGame(message: types.Message, PATH_FILE = FILE_PATH_GAME):
     data = None
@@ -127,6 +163,62 @@ async def select_info_user(message: types.Message):
 
     return
 
+async def setRound(chat_id, round):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                local_round = game["round"] = round
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+    return
+
+async def getRound(chat_id):
+    data = None
+    round = -1
+
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for inf in chat["game"]:
+                round = inf["round"]
+
+    return round
+
+async def addUsersJsonMash(mash, chat_id):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    round = -1
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for inf in chat["game"]:
+                round = inf["round"]
+
+
+    if (round != -1):
+        return
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for inf in chat["game"]:
+                inf["rounds"].append(mash)
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+
+    await setRound(chat_id, 0)
+    
+    return
 
 async def addUserForGame(user: types.User, chat_id):
     data = None
@@ -169,10 +261,91 @@ async def getStringUsersForGame(chat_id):
         if(chat["chat_id"] == chat_id):
             for players in chat["game"]:
                 for user in players["players"]:
-                    text += f"<b>Игрок {user['username']} присоединился</b>\n"
+                    text += f"Игрок <b>{user['username']}</b> присоединился\n"
     
     return text 
 
+async def getUsersForGame(chat_id):
+    users = []
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for players in chat["game"]:
+                for user in players["players"]:
+                    users.append(user)
+    
+    return users 
+
+async def getIdUsersForGame(chat_id):
+    array = []
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for players in chat["game"]:
+                for user in players["players"]:
+                    array.append(user['id'])
+    
+    return array 
+
+async def getActionUser(chat_id):
+    action = 0
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                action = game["action_user"]
+    
+    return action 
+
+async def setActionUser(chat_id, action):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                    game["action_user"] = action
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+    return
+
+async def setCurrentFight(chat_id, current_fight):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                    game["current_fight"] = current_fight
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+    return
+
+async def getCurrentFight(chat_id):
+    current_fight = 0
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                current_fight = game["current_fight"]
+    
+    return current_fight 
 
 async def joinGameCallback(callback_query: types.CallbackQuery):
     message = callback_query.message
@@ -185,14 +358,127 @@ async def joinGameCallback(callback_query: types.CallbackQuery):
     await editMessage(message, text, keyJoinGame)
     await callback_query.answer()
 
+async def createMashUsers(chat_id):
+    users = await getUsersForGame(chat_id)
+    cells = int(len(users) / 2)
+    first_player = None
+    last_player = None
+
+    mash = []
+    
+
+    for i in range(cells):
+        first_player = users[i]
+        last_player = users[i + 2]
+
+        info = {
+            '0' : first_player,
+            '1' : last_player,
+            'winner' : ''
+        }
+        mash.append(info)
+
+    await addUsersJsonMash(mash, chat_id)
+
+async def getCurrentActionUser(chat_id, action):
+    user = None
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    round = await getRound(chat_id)
+    current_fight = await getCurrentFight(chat_id)
+
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                user = game["rounds"][round][current_fight][f'{action}']
+    
+    return user 
+
+async def addStats(chat_id, stat):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                    game["stats"].append(stat)
+
+    with open(FILE_PATH_GAME, "w") as file:
+        json.dump(data, file, indent=4)
+    return
+
+async def getCountStatsUser(chat_id, user_id):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    count = 0
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                for stats in game["stats"]:
+                    if(stats["id"] == user_id): count += 1
+    
+    return count
+
+async def getMessagesIdUserStats(chat_id, user_id):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    messages = []
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                for stats in game["stats"]:
+                    if(stats["id"] == user_id): messages.append(stats["message_id"])
+    
+    return messages
+
+async def getScoreUserStats(chat_id, user_id):
+    data = None
+    with open(FILE_PATH_GAME, "r") as file:
+        data = json.load(file)
+
+    score = 0
+    
+    for chat in data:
+        if(chat["chat_id"] == chat_id):
+            for game in chat["game"]:
+                for stats in game["stats"]:
+                    if(stats["id"] == user_id): score += stats["score"]
+    
+    return score
 
 async def goGameCallback(callback_query: types.CallbackQuery):
     message = callback_query.message
+    chat_id = message.chat.id
 
-    if (await getCountUsersForGame(message.chat.id) < 2):
-        text = f"Игра начинается, залетаааем.{await getStringUsersForGame(message.chat.id)}\n<b>Меньше 4 игроков нельзя!</b>\n"
+    if (await getCountUsersForGame(chat_id) < 4):
+        text = f"Игра начинается, залетаааем.{await getStringUsersForGame(chat_id)}\n<b>Меньше 4 игроков нельзя!</b>\n"
         await editMessage(message, text, keyJoinGame)
         return
+    
+    await createMashUsers(chat_id)
+
+    actionUser = await getActionUser(chat_id)
+
+    currentActionUser = await getCurrentActionUser(chat_id, actionUser)
+
+    for user in await getIdUsersForGame(chat_id):
+        state = dp.current_state(chat=chat_id, user=user)
+
+        if (currentActionUser['id'] == user):
+            await state.set_state(Game.StartGame)
+        
+        else:
+            await state.set_state(Game.WaitGame)
 
     time = 5
     for i in range(5):
@@ -200,10 +486,65 @@ async def goGameCallback(callback_query: types.CallbackQuery):
         await asyncio.sleep(1)
         time -= 1
 
-
+    text = f"Игра началась, прошу игрока <b>{currentActionUser['username']}</b> бросить свои 3 мяча!"
+    await editMessage(message, text)
 
     await callback_query.answer()
 
+
+@dp.message_handler(state=Game.StartGame, content_types=types.ContentType.DICE)
+async def my_state_handler(message: types.Message, state: FSMContext):
+
+    chat_id = message.chat.id
+
+    data = {
+        'id': message.from_user.id,
+        'username':  message.from_user.username or  message.from_user.first_name,
+        'score' : message.dice.value,
+        'message_id' : message.message_id
+    }
+    await addStats(chat_id, data)
+
+    if (await getCountStatsUser(chat_id, message.from_user.id) >= 3):
+
+        for message_id in await getMessagesIdUserStats(chat_id, message.from_user.id):
+            await bot.delete_message(chat_id, message_id)
+
+        score = await getScoreUserStats(chat_id, message.from_user.id)
+
+        if (await getActionUser(chat_id) == 1):
+            await setCurrentFight(chat_id, await getCurrentFight(chat_id) + 1)
+            await setActionUser(chat_id, 0)
+        else:
+            await setActionUser(chat_id, 1)
+            
+        actionUser = await getActionUser(chat_id)
+        currentActionUser = await getCurrentActionUser(chat_id, actionUser)
+
+        for user in await getIdUsersForGame(chat_id):
+            state = dp.current_state(chat=chat_id, user=user)
+
+            if (currentActionUser['id'] == user):
+                await state.set_state(Game.StartGame)
+            
+            else:
+                await state.set_state(Game.WaitGame)
+
+
+        text = f"Поздравляю игрока <b>{message.from_user.username or  message.from_user.first_name}</b> вы заработали {score} очков\n"
+        text += f"Прошу игрока <b>{currentActionUser['username']}</b> бросить свои 3 мяча!" 
+
+        await bot.edit_message_text(chat_id=chat_id, message_id=await getMessageIdGame(chat_id), text=text)
+
+        await state.finish()
+        return
+
+    await state.set_state(Game.StartGame)
+
+@dp.message_handler(state=Game.WaitGame, content_types=types.ContentType.DICE)
+async def my_state_handler(message: types.Message, state: FSMContext):
+    await message.delete()
+    await state.set_state(Game.WaitGame)
 
 
 async def editMessage(message: types.Message, text, keyboard = None):

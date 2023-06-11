@@ -10,7 +10,7 @@ from messages import *
 from config import ADMINS
 
 from keyboards.inline import *
-from handlers.logic.logic import setActiveGame, joinGameCallback, addChatToJson, getActiveGame, goGameCallback
+from handlers.logic.logic import setActiveGame, joinGameCallback, addChatToJson, getActiveGame, goGameCallback, setMessageIdGame
 
 FILE_PATH_GAME = "data\\games_data.json"
 
@@ -37,8 +37,9 @@ async def startgame(message: types.Message):
         await mess.delete()
         return
 
+    mes = await message.answer("Игра начинается, залетаааем.", reply_markup=keyJoinGame)
+    await setMessageIdGame(message.chat.id, mes.message_id)
 
-    await message.answer("Игра начинается, залетаааем.", reply_markup=keyJoinGame)
 
 
 @dp.callback_query_handler(lambda c: True)

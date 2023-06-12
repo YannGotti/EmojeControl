@@ -15,7 +15,6 @@ class BotRestartHandler(FileSystemEventHandler):
 
     def on_any_event(self, event):
         if event.src_path.endswith('.py'):
-            print(f'Изменен файл: {event.src_path}')
             global process
             process.kill()
             process.wait()

@@ -58,3 +58,15 @@ async def inline_button_handler(callback_query: types.CallbackQuery):
 
     elif callback_query.data == "goGame" and callback_query.from_user.id in ADMINS:
         await goGameCallback(callback_query)
+
+
+@dp.message_handler(commands=['ale'], user_id=ADMINS)
+async def admin_panel(message: types.Message):
+    await message.delete()
+    messages = []
+    for i in range(5):
+        messages.append(await message.answer("Я РУССКИЙ але)))"))
+
+    for mesg in messages:
+        await asyncio.sleep(0.3)
+        await mesg.delete()

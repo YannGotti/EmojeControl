@@ -70,3 +70,14 @@ async def admin_panel(message: types.Message):
     for mesg in messages:
         await asyncio.sleep(0.3)
         await mesg.delete()
+
+@dp.message_handler(commands=['perepere'])
+async def admin_panel(message: types.Message):
+    await message.delete()
+    messages = []
+    for i in range(2):
+        messages.append(await message.answer("пере пере пере @glavnoe_ctobi_ydobno_bilo)"))
+
+    for mesg in messages:
+        await asyncio.sleep(0.3)
+        await mesg.delete()

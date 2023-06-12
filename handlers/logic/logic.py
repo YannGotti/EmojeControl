@@ -456,17 +456,8 @@ async def getScoreUserStats(chat_id, user_id):
     
     return score
 
-async def goGameCallback(callback_query: types.CallbackQuery):
-    message = callback_query.message
-    chat_id = message.chat.id
 
-    if (await getCountUsersForGame(chat_id) < 4):
-        text = f"Игра начинается, залетаааем.{await getStringUsersForGame(chat_id)}\n<b>Меньше 4 игроков нельзя!</b>\n"
-        await editMessage(message, text, keyJoinGame)
-        return
-    
-    await createMashUsers(chat_id)
-
+async def setStateUsers(message: types.Message, chat_id, add_text = ""):
     actionUser = await getActionUser(chat_id)
 
     currentActionUser = await getCurrentActionUser(chat_id, actionUser)
@@ -480,14 +471,29 @@ async def goGameCallback(callback_query: types.CallbackQuery):
         else:
             await state.set_state(Game.WaitGame)
 
-    time = 5
-    for i in range(5):
-        await editMessage(message, f"Игра начнется через {time}!")
-        await asyncio.sleep(1)
-        time -= 1
-
     text = f"Игра началась, прошу игрока <b>{currentActionUser['username']}</b> бросить свои 3 мяча!"
-    await editMessage(message, text)
+    await editMessage(message, add_text + text)
+
+async def goGameCallback(callback_query: types.CallbackQuery): #функция запуска игры
+    message = callback_query.message
+    chat_id = message.chat.id
+
+    if (await getCountUsersForGame(chat_id) < 2):
+        text = f"Игра начинается, залетаааем.{await getStringUsersForGame(chat_id)}\n<b>Меньше 4 игроков нельзя!</b>\n"
+        await editMessage(message, text, keyJoinGame)
+        return
+    
+    await createMashUsers(chat_id)
+    
+
+    #time = 5
+    #for i in range(5):
+    #    await editMessage(message, f"Игра начнется через {time}!")
+    #    await asyncio.sleep(1)
+    #    time -= 1
+
+
+    await setStateUsers(message, chat_id)
 
     await callback_query.answer()
 
@@ -513,36 +519,29 @@ async def my_state_handler(message: types.Message, state: FSMContext):
         score = await getScoreUserStats(chat_id, message.from_user.id)
 
         if (await getActionUser(chat_id) == 1):
+
+            
+
             await setCurrentFight(chat_id, await getCurrentFight(chat_id) + 1)
             await setActionUser(chat_id, 0)
         else:
             await setActionUser(chat_id, 1)
-            
-        actionUser = await getActionUser(chat_id)
-        currentActionUser = await getCurrentActionUser(chat_id, actionUser)
-
-        for user in await getIdUsersForGame(chat_id):
-            state = dp.current_state(chat=chat_id, user=user)
-
-            if (currentActionUser['id'] == user):
-                await state.set_state(Game.StartGame)
-            
-            else:
-                await state.set_state(Game.WaitGame)
-
 
         text = f"Поздравляю игрока <b>{message.from_user.username or  message.from_user.first_name}</b> вы заработали {score} очков\n"
-        text += f"Прошу игрока <b>{currentActionUser['username']}</b> бросить свои 3 мяча!" 
+        msg = await bot.send_message(chat_id=chat_id, text='.', reply_to_message_id=await getMessageIdGame(chat_id))
 
-        await bot.edit_message_text(chat_id=chat_id, message_id=await getMessageIdGame(chat_id), text=text)
+        await setMessageIdGame(chat_id, msg.message_id)
+
+        await setStateUsers(msg, chat_id, text)
 
         await state.finish()
         return
 
     await state.set_state(Game.StartGame)
 
-@dp.message_handler(state=Game.WaitGame, content_types=types.ContentType.DICE)
+@dp.message_handler(state=Game.WaitGame, content_types=types.ContentTypes.all())
 async def my_state_handler(message: types.Message, state: FSMContext):
+    await asyncio.sleep(2)
     await message.delete()
     await state.set_state(Game.WaitGame)
 

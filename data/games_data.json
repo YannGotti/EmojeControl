@@ -1,7 +1,7 @@
 [
     {
         "chat_id": -1001974916014,
-        "message_id": 13266,
+        "message_id": 13673,
         "invite_link": null,
         "game_active": true,
         "game": [
@@ -12,16 +12,16 @@
                         "username": "mironovvvc"
                     },
                     {
-                        "id": 875272633,
-                        "username": "dedushaistele2"
-                    },
-                    {
-                        "id": 779118358,
-                        "username": "glavnoe_ctobi_ydobno_bilo"
-                    },
-                    {
                         "id": 782334098,
                         "username": "nxvrmxnd"
+                    },
+                    {
+                        "id": 1442364592,
+                        "username": "M0sser"
+                    },
+                    {
+                        "id": 875272633,
+                        "username": "dedushaistele2"
                     }
                 ],
                 "rounds": [
@@ -32,19 +32,19 @@
                                 "username": "mironovvvc"
                             },
                             "1": {
-                                "id": 779118358,
-                                "username": "glavnoe_ctobi_ydobno_bilo"
+                                "id": 1442364592,
+                                "username": "M0sser"
                             },
                             "winner": ""
                         },
                         {
                             "0": {
-                                "id": 875272633,
-                                "username": "dedushaistele2"
-                            },
-                            "1": {
                                 "id": 782334098,
                                 "username": "nxvrmxnd"
+                            },
+                            "1": {
+                                "id": 875272633,
+                                "username": "dedushaistele2"
                             },
                             "winner": ""
                         }
@@ -54,138 +54,79 @@
                     {
                         "id": 793228987,
                         "username": "mironovvvc",
-                        "score": 3,
-                        "message_id": 13278
+                        "score": 5,
+                        "message_id": 13654
                     },
                     {
                         "id": 793228987,
                         "username": "mironovvvc",
-                        "score": 3,
-                        "message_id": 13279
-                    },
-                    {
-                        "id": 793228987,
-                        "username": "mironovvvc",
-                        "score": 2,
-                        "message_id": 13280
-                    },
-                    {
-                        "id": 779118358,
-                        "username": "glavnoe_ctobi_ydobno_bilo",
-                        "score": 1,
-                        "message_id": 13283
-                    },
-                    {
-                        "id": 779118358,
-                        "username": "glavnoe_ctobi_ydobno_bilo",
                         "score": 4,
-                        "message_id": 13284
+                        "message_id": 13655
                     },
-                    {
-                        "id": 779118358,
-                        "username": "glavnoe_ctobi_ydobno_bilo",
-                        "score": 1,
-                        "message_id": 13285
-                    },
-                    {
-                        "id": 875272633,
-                        "username": "dedushaistele2",
-                        "score": 1,
-                        "message_id": 13290
-                    },
-                    {
-                        "id": 875272633,
-                        "username": "dedushaistele2",
-                        "score": 5,
-                        "message_id": 13291
-                    },
-                    {
-                        "id": 875272633,
-                        "username": "dedushaistele2",
-                        "score": 5,
-                        "message_id": 13292
-                    }
-                ],
-                "round": 0,
-                "action_user": 1,
-                "current_fight": 1
-            }
-        ]
-    },
-    {
-        "chat_id": -1001982372894,
-        "message_id": 260,
-        "invite_link": null,
-        "game_active": true,
-        "game": [
-            {
-                "players": [
                     {
                         "id": 793228987,
-                        "username": "mironovvvc"
+                        "username": "mironovvvc",
+                        "score": 4,
+                        "message_id": 13656
                     },
                     {
-                        "id": 875272633,
-                        "username": "dedushaistele2"
+                        "id": 1442364592,
+                        "username": "M0sser",
+                        "score": 5,
+                        "message_id": 13661
                     },
                     {
-                        "id": 779118358,
-                        "username": "glavnoe_ctobi_ydobno_bilo"
+                        "id": 1442364592,
+                        "username": "M0sser",
+                        "score": 2,
+                        "message_id": 13663
+                    },
+                    {
+                        "id": 1442364592,
+                        "username": "M0sser",
+                        "score": 1,
+                        "message_id": 13664
                     },
                     {
                         "id": 782334098,
-                        "username": "nxvrmxnd"
-                    }
-                ],
-                "rounds": [
-                    [
-                        {
-                            "0": {
-                                "id": 793228987,
-                                "username": "mironovvvc"
-                            },
-                            "1": {
-                                "id": 779118358,
-                                "username": "glavnoe_ctobi_ydobno_bilo"
-                            },
-                            "winner": ""
-                        },
-                        {
-                            "0": {
-                                "id": 875272633,
-                                "username": "dedushaistele2"
-                            },
-                            "1": {
-                                "id": 782334098,
-                                "username": "nxvrmxnd"
-                            },
-                            "winner": ""
-                        }
-                    ]
-                ],
-                "stats": [
-                    {
-                        "id": 793228987,
-                        "username": "mironovvvc",
-                        "score": 5,
-                        "message_id": 261
-                    },
-                    {
-                        "id": 793228987,
-                        "username": "mironovvvc",
+                        "username": "nxvrmxnd",
                         "score": 1,
-                        "message_id": 262
+                        "message_id": 13666
                     },
                     {
-                        "id": 793228987,
-                        "username": "mironovvvc",
+                        "id": 782334098,
+                        "username": "nxvrmxnd",
                         "score": 3,
-                        "message_id": 263
+                        "message_id": 13667
+                    },
+                    {
+                        "id": 782334098,
+                        "username": "nxvrmxnd",
+                        "score": 1,
+                        "message_id": 13668
+                    },
+                    {
+                        "id": 875272633,
+                        "username": "dedushaistele2",
+                        "score": 4,
+                        "message_id": 13670
+                    },
+                    {
+                        "id": 875272633,
+                        "username": "dedushaistele2",
+                        "score": 3,
+                        "message_id": 13671
+                    },
+                    {
+                        "id": 875272633,
+                        "username": "dedushaistele2",
+                        "score": 4,
+                        "message_id": 13672
                     }
                 ],
                 "round": 0,
-                "action_user": 1,
-                "current_fight": 0
+                "action_user": 0,
+                "current_fight": 2
             }
         ]
     }

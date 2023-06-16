@@ -13,10 +13,10 @@ async def selectCryptoRateList():
 
     for crypto in data:
         growth_percentage = crypto["growth_percentage"]
-        if(len(growth_percentage) >= 5):
+        if(len(growth_percentage) >= 2):
             crypto["rating"] = 0
-            for value in growth_percentage[:5]:
-                if(value > 0): crypto["rating"] += 1
+            for value in growth_percentage[:2]:
+                if(value > 0): crypto["rating"] += value
 
             crypto["growth_percentage"] = []
 
@@ -83,8 +83,9 @@ async def main():
     while(True):
         await selectCrypto()
         await selectCryptoRateList()
-        await asyncio.sleep(20)
+        await asyncio.sleep(10)
 
 
 
+# Запускаем цикл событий
 asyncio.run(main())

@@ -27,6 +27,8 @@ async def selectLocalTopCrypto(count = 5):
 
 
 async def MonitoringTop(message: types.Message, state: FSMContext):
+    old_text = ""
+
     while(await state.get_state() == Crypto.MonitoringTop.state):
         text = "<b>Топ 5 быстрорастущих криптовалют:</b>\n"
         crypts = await selectLocalTopCrypto()
@@ -37,8 +39,11 @@ async def MonitoringTop(message: types.Message, state: FSMContext):
             text += f"{i}.{crypto['crypto_name']}. Цена {crypto['crypto_price']} USD\n"
 
         text += "<b>Данное сообщение будет автоматически обновляться при изменении данных пока вы не закончите мониторинг!</b>"
-        await message.edit_text(text, reply_markup=cryptoStopMonitoring)
-        await asyncio.sleep(60)
+
+        if (old_text != text):
+            old_text = text
+            await message.edit_text(text, reply_markup=cryptoStopMonitoring)
+        await asyncio.sleep(10)
 
 @dp.callback_query_handler(lambda c: c.data == 'topCrypto')
 async def topCryptoHandler(callback_query: types.CallbackQuery, state: FSMContext):

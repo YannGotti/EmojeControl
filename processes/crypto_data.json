@@ -1,1047 +1,748 @@
 [
     {
-        "crypto_name": "Bitcoin",
-        "crypto_price": 26284,
-        "crypto_price_last": 26284,
-        "growth_percentage": [
-            -0.07587541257255585,
-            -0.011389954060518622,
-            -0.19744835965978128
-        ],
-        "rating": 2
-    },
-    {
         "crypto_name": "Ethereum",
-        "crypto_price": 1712.77,
-        "crypto_price_last": 1712.77,
-        "growth_percentage": [
-            -0.08677016969682905,
-            -0.019817099825734576,
-            -0.15040662255515944
-        ],
-        "rating": 2
+        "crypto_price": 1717.69,
+        "crypto_price_last": 1717.69,
+        "growth_percentage": [],
+        "rating": 0.03547646049608305
     },
     {
         "crypto_name": "Tether",
-        "crypto_price": 0.999225,
-        "crypto_price_last": 0.999225,
-        "growth_percentage": [
-            -0.06536935688765927,
-            0.07783340645867293,
-            0.01621519363643689
-        ],
-        "rating": 2
+        "crypto_price": 0.999404,
+        "crypto_price_last": 0.999404,
+        "growth_percentage": [],
+        "rating": 0.027415023432840843
     },
     {
         "crypto_name": "BNB",
-        "crypto_price": 239.15,
-        "crypto_price_last": 239.15,
+        "crypto_price": 239.54,
+        "crypto_price_last": 239.54,
         "growth_percentage": [
-            -0.07921287417661392,
-            -0.21696499353276666
+            -0.11258913306367968
         ],
-        "rating": 1
+        "rating": 0.12521722614261588
     },
     {
         "crypto_name": "USD Coin",
-        "crypto_price": 0.999713,
-        "crypto_price_last": 0.999713,
+        "crypto_price": 0.999535,
+        "crypto_price_last": 0.999535,
         "growth_percentage": [
-            -0.1285714285714213
+            -0.04650000000000487
         ],
-        "rating": 3
+        "rating": 0.04151722965031031
     },
     {
         "crypto_name": "XRP",
-        "crypto_price": 0.470582,
-        "crypto_price_last": 0.470582,
-        "growth_percentage": [
-            -0.22541471880094596,
-            -0.16653704392519264,
-            -0.38062576739066467
-        ],
-        "rating": 2
+        "crypto_price": 0.472881,
+        "crypto_price_last": 0.472881,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Lido Staked Ether",
-        "crypto_price": 1711.49,
-        "crypto_price_last": 1711.49,
-        "growth_percentage": [
-            -0.11707214789532182,
-            0.019826460160472927,
-            -0.2174648150091544
-        ],
-        "rating": 2
+        "crypto_price": 1716.8,
+        "crypto_price_last": 1716.8,
+        "growth_percentage": [],
+        "rating": 0.14037172296097444
     },
     {
         "crypto_name": "Cardano",
-        "crypto_price": 0.262513,
-        "crypto_price_last": 0.262513,
-        "growth_percentage": [
-            -0.2524545241213194,
-            -0.13736107369308867,
-            -0.25230168289782084
-        ],
-        "rating": 1
+        "crypto_price": 0.262848,
+        "crypto_price_last": 0.262848,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Dogecoin",
-        "crypto_price": 0.062185,
-        "crypto_price_last": 0.062185,
-        "growth_percentage": [
-            -0.09297106676284764,
-            -0.049737673881308654,
-            -0.17818158469243608
-        ],
-        "rating": 1
+        "crypto_price": 0.062224,
+        "crypto_price_last": 0.062224,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "TRON",
-        "crypto_price": 0.070636,
-        "crypto_price_last": 0.070636,
-        "growth_percentage": [
-            -0.1593771597015585,
-            0.05226874611515422,
-            -0.2668549241087112
-        ],
-        "rating": 3
+        "crypto_price": 0.070758,
+        "crypto_price_last": 0.070758,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Solana",
-        "crypto_price": 15.17,
-        "crypto_price_last": 15.17,
+        "crypto_price": 15.22,
+        "crypto_price_last": 15.22,
         "growth_percentage": [
-            -0.19672131147540564,
-            -0.32851511169514264
+            -0.2621231979030088
         ],
-        "rating": 2
+        "rating": 0.2622950819672075
     },
     {
         "crypto_name": "Litecoin",
-        "crypto_price": 75.98,
-        "crypto_price_last": 75.98,
-        "growth_percentage": [
-            -0.09188763454976029,
-            -0.05255551175930397,
-            -0.11831208097803235
-        ],
-        "rating": 3
+        "crypto_price": 76.29,
+        "crypto_price_last": 76.29,
+        "growth_percentage": [],
+        "rating": 0.013077023669419532
     },
     {
         "crypto_name": "Polkadot",
-        "crypto_price": 4.4,
-        "crypto_price_last": 4.4,
-        "growth_percentage": [
-            -0.2257336343115076,
-            -0.4524886877827958
-        ],
-        "rating": 0
+        "crypto_price": 4.41,
+        "crypto_price_last": 4.41,
+        "growth_percentage": [],
+        "rating": 0.22675736961450763
     },
     {
         "crypto_name": "Polygon",
-        "crypto_price": 0.587522,
-        "crypto_price_last": 0.587522,
-        "growth_percentage": [
-            -0.32023255264338324,
-            -0.11634503840063559,
-            -0.3858948317898765
-        ],
-        "rating": 2
+        "crypto_price": 0.591129,
+        "crypto_price_last": 0.591129,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Dai",
-        "crypto_price": 1.002,
-        "crypto_price_last": 1.002,
+        "crypto_price": 1.003,
+        "crypto_price_last": 1.003,
         "growth_percentage": [
-            -0.29880478087650536,
-            0.09990009990011109,
-            0.0998003992015858,
-            -0.09970089730806479
+            -0.09960159362550915
         ],
-        "rating": 0
+        "rating": 0.19960079840319378
     },
     {
         "crypto_name": "Binance USD",
-        "crypto_price": 0.998568,
-        "crypto_price_last": 0.998568,
-        "growth_percentage": [
-            0.010201040506136275,
-            0.09999999999998899,
-            -0.09990009990008891,
-            -0.14319999999999888
-        ],
-        "rating": 0
+        "crypto_price": 0.999321,
+        "crypto_price_last": 0.999321,
+        "growth_percentage": [],
+        "rating": 0.09999999999998899
     },
     {
         "crypto_name": "Wrapped Bitcoin",
-        "crypto_price": 26262,
-        "crypto_price_last": 26262,
-        "growth_percentage": [
-            -0.11008199210446401,
-            -0.015200456013680412,
-            -0.18623389456881154
-        ],
-        "rating": 3
+        "crypto_price": 26314,
+        "crypto_price_last": 26314,
+        "growth_percentage": [],
+        "rating": 0.07595321282090232
     },
     {
         "crypto_name": "Shiba Inu",
-        "crypto_price": 6.8e-06,
-        "crypto_price_last": 6.8e-06,
+        "crypto_price": 6.79e-06,
+        "crypto_price_last": 6.79e-06,
         "growth_percentage": [
-            -0.14684287812040978
+            -0.29368575624081955
         ],
-        "rating": 2
+        "rating": 0
     },
     {
         "crypto_name": "Avalanche",
-        "crypto_price": 11.55,
-        "crypto_price_last": 11.55,
+        "crypto_price": 11.59,
+        "crypto_price_last": 11.59,
         "growth_percentage": [
-            -0.17286084701814672
+            -0.17226528854435463
         ],
-        "rating": 0
+        "rating": 0.3454981670789424
     },
     {
         "crypto_name": "Uniswap",
-        "crypto_price": 4.54,
-        "crypto_price_last": 4.54,
+        "crypto_price": 4.55,
+        "crypto_price_last": 4.55,
         "growth_percentage": [
-            -0.21834061135370714,
-            -0.21881838074399723,
-            -0.21929824561403044,
-            -0.21978021978021509
+            -0.21929824561403044
         ],
-        "rating": 0
+        "rating": 0.21978021978021509
     },
     {
         "crypto_name": "LEO Token",
-        "crypto_price": 3.54,
-        "crypto_price_last": 3.54,
+        "crypto_price": 3.53,
+        "crypto_price_last": 3.53,
         "growth_percentage": [
-            -0.283286118980164,
-            0.5681818181818187
+            -0.2824858757062212
         ],
-        "rating": 0
+        "rating": 0.2832861189801765
     },
     {
         "crypto_name": "TrueUSD",
         "crypto_price": 1.001,
         "crypto_price_last": 1.001,
-        "growth_percentage": [
-            -0.09980039920160796
-        ],
-        "rating": 3
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Chainlink",
-        "crypto_price": 5.32,
-        "crypto_price_last": 5.32,
-        "growth_percentage": [
-            0.1869158878504799,
-            -0.18656716417911706,
-            -0.1869158878504633,
-            -0.37453183520598454
-        ],
+        "crypto_price": 5.34,
+        "crypto_price_last": 5.34,
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "Cosmos Hub",
         "crypto_price": 8.77,
         "crypto_price_last": 8.77,
-        "growth_percentage": [],
-        "rating": 1
+        "growth_percentage": [
+            -0.11389521640090874
+        ],
+        "rating": 0
     },
     {
         "crypto_name": "OKB",
-        "crypto_price": 41.12,
-        "crypto_price_last": 41.12,
+        "crypto_price": 41.28,
+        "crypto_price_last": 41.28,
         "growth_percentage": [
-            -0.14548981571290562,
-            -0.14570179698883506
+            -0.12097749818533066
         ],
-        "rating": 2
+        "rating": 0.1695971710767101
     },
     {
         "crypto_name": "Monero",
-        "crypto_price": 135.25,
-        "crypto_price_last": 135.25,
-        "growth_percentage": [
-            -0.06630811169233287,
-            -0.03686228251252061,
-            -0.2507559554539446
-        ],
-        "rating": 2
+        "crypto_price": 134.84,
+        "crypto_price_last": 134.84,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Ethereum Classic",
-        "crypto_price": 15.12,
-        "crypto_price_last": 15.12,
-        "growth_percentage": [
-            -0.13210039630119783
-        ],
-        "rating": 2
+        "crypto_price": 15.17,
+        "crypto_price_last": 15.17,
+        "growth_percentage": [],
+        "rating": 0.06587615283267316
     },
     {
         "crypto_name": "Stellar",
-        "crypto_price": 0.077515,
-        "crypto_price_last": 0.077515,
-        "growth_percentage": [
-            -0.16683778234086896,
-            -0.09769893302480105,
-            -0.25606711789382186
-        ],
-        "rating": 2
+        "crypto_price": 0.07735,
+        "crypto_price_last": 0.07735,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Toncoin",
         "crypto_price": 1.4,
         "crypto_price_last": 1.4,
         "growth_percentage": [
-            0.714285714285715,
-            -0.7092198581560291,
-            0.714285714285715,
             -0.7092198581560291
         ],
-        "rating": 0
+        "rating": 0.714285714285715
     },
     {
         "crypto_name": "Bitcoin Cash",
-        "crypto_price": 106.45,
-        "crypto_price_last": 106.45,
+        "crypto_price": 106.67,
+        "crypto_price_last": 106.67,
         "growth_percentage": [
-            -0.05640688163956216,
-            0.18812905653278414,
-            -0.05633273870998241
+            0.1126231816048846
         ],
-        "rating": 3
+        "rating": 0.08453879391321005
     },
     {
         "crypto_name": "Internet Computer",
         "crypto_price": 4.02,
         "crypto_price_last": 4.02,
         "growth_percentage": [],
-        "rating": 2
+        "rating": 0
     },
     {
         "crypto_name": "Quant",
-        "crypto_price": 112.61,
-        "crypto_price_last": 112.61,
+        "crypto_price": 115.85,
+        "crypto_price_last": 115.85,
         "growth_percentage": [
-            0.08914244963451089,
-            -0.04453152832204948,
-            0.338590394725114
+            -0.24969863957293462
         ],
-        "rating": 4
+        "rating": 0.7013345244652989
     },
     {
         "crypto_name": "Filecoin",
-        "crypto_price": 3.67,
-        "crypto_price_last": 3.67,
+        "crypto_price": 3.69,
+        "crypto_price_last": 3.69,
         "growth_percentage": [
-            -0.2695417789757355,
-            -0.2702702702702765,
-            -0.27100271002709453,
-            -0.27173913043478887
+            -0.2702702702702765
         ],
-        "rating": 0
+        "rating": 0.5427418404618833
     },
     {
         "crypto_name": "Lido DAO",
         "crypto_price": 1.76,
         "crypto_price_last": 1.76,
-        "growth_percentage": [
-            0.5681818181818187,
-            -0.56497175141243
-        ],
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "Hedera",
-        "crypto_price": 0.04404204,
-        "crypto_price_last": 0.04404204,
-        "growth_percentage": [
-            -0.08235477196255563,
-            -0.06003429561005348,
-            -0.2405305943182752
-        ],
-        "rating": 1
+        "crypto_price": 0.04439656,
+        "crypto_price_last": 0.04439656,
+        "growth_percentage": [],
+        "rating": 0.06282893871695833
     },
     {
         "crypto_name": "Cronos",
-        "crypto_price": 0.053055,
-        "crypto_price_last": 0.053055,
-        "growth_percentage": [
-            -0.013182177695755453,
-            -0.07533666070252436
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "Aptos",
-        "crypto_price": 6.23,
-        "crypto_price_last": 6.23,
-        "growth_percentage": [
-            -0.4777070063694307,
-            0.1599999999999966,
-            -0.1597444089456835,
-            -0.3199999999999932
-        ],
+        "crypto_price": 0.053056,
+        "crypto_price_last": 0.053056,
+        "growth_percentage": [],
         "rating": 0
     },
     {
+        "crypto_name": "Aptos",
+        "crypto_price": 6.26,
+        "crypto_price_last": 6.26,
+        "growth_percentage": [],
+        "rating": 0.3199999999999932
+    },
+    {
         "crypto_name": "Arbitrum",
-        "crypto_price": 0.967524,
-        "crypto_price_last": 0.967524,
-        "growth_percentage": [
-            -0.12101633154978877,
-            0.07380955077057043,
-            -0.4744192170642739
-        ],
-        "rating": 2
+        "crypto_price": 0.972244,
+        "crypto_price_last": 0.972244,
+        "growth_percentage": [],
+        "rating": 0.12707641110758294
     },
     {
         "crypto_name": "NEAR Protocol",
         "crypto_price": 1.22,
         "crypto_price_last": 1.22,
-        "growth_percentage": [
-            -0.8130081300813016
-        ],
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "VeChain",
-        "crypto_price": 0.0146367,
-        "crypto_price_last": 0.0146367,
-        "growth_percentage": [
-            -0.09908330949127142,
-            -0.09850132412172947,
-            -0.3345401655881871
-        ],
-        "rating": 2
+        "crypto_price": 0.01472034,
+        "crypto_price_last": 0.01472034,
+        "growth_percentage": [],
+        "rating": 0.11561493243137427
     },
     {
         "crypto_name": "Pax Dollar",
-        "crypto_price": 0.998069,
-        "crypto_price_last": 0.998069,
+        "crypto_price": 1.0,
+        "crypto_price_last": 1.0,
         "growth_percentage": [],
-        "rating": 2
+        "rating": 0
     },
     {
         "crypto_name": "Frax",
-        "crypto_price": 0.999747,
-        "crypto_price_last": 0.999747,
-        "growth_percentage": [
-            -0.02529999999999477
-        ],
-        "rating": 2
+        "crypto_price": 0.999187,
+        "crypto_price_last": 0.999187,
+        "growth_percentage": [],
+        "rating": 0.017108828155320267
     },
     {
         "crypto_name": "The Graph",
-        "crypto_price": 0.098658,
-        "crypto_price_last": 0.098658,
-        "growth_percentage": [
-            0.007064855372310937,
-            -0.07266195036785376,
-            -0.36256400416089984
-        ],
-        "rating": 3
+        "crypto_price": 0.099137,
+        "crypto_price_last": 0.099137,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Algorand",
-        "crypto_price": 0.114332,
-        "crypto_price_last": 0.114332,
-        "growth_percentage": [
-            -0.022685827465555274,
-            0.08378206191145184,
-            -0.3025837337263144
-        ],
-        "rating": 2
+        "crypto_price": 0.115587,
+        "crypto_price_last": 0.115587,
+        "growth_percentage": [],
+        "rating": 0.09957591076429542
     },
     {
         "crypto_name": "Rocket Pool ETH",
-        "crypto_price": 1838.39,
-        "crypto_price_last": 1838.39,
-        "growth_percentage": [
-            -0.14574574140696406,
-            0.02767242361597138,
-            -0.27719012747490646
-        ],
-        "rating": 2
+        "crypto_price": 1845.19,
+        "crypto_price_last": 1845.19,
+        "growth_percentage": [],
+        "rating": 0.12625646861198772
     },
     {
         "crypto_name": "Rocket Pool",
-        "crypto_price": 40.69,
-        "crypto_price_last": 40.69,
+        "crypto_price": 40.89,
+        "crypto_price_last": 40.89,
         "growth_percentage": [
-            0.07345739471105296,
-            0.07340347443112587,
-            -0.5134474327628382
+            -0.3412137460394847
         ],
-        "rating": 3
+        "rating": 0.024372410431386816
     },
     {
         "crypto_name": "MultiversX",
-        "crypto_price": 30.53,
-        "crypto_price_last": 30.53,
-        "growth_percentage": [
-            -0.16302575806977732,
-            -0.16329196603527338,
-            -0.13084723585213984
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "Stacks",
-        "crypto_price": 0.561384,
-        "crypto_price_last": 0.561384,
-        "growth_percentage": [
-            -0.6210059827965243,
-            -0.07314240081310432,
-            1.9628498829409893
-        ],
-        "rating": 0
+        "crypto_price": 30.57,
+        "crypto_price_last": 30.57,
+        "growth_percentage": [],
+        "rating": 0.06542361792606992
     },
     {
         "crypto_name": "ApeCoin",
         "crypto_price": 2.1,
         "crypto_price_last": 2.1,
-        "growth_percentage": [
-            -0.47393364928908943,
-            0.476190476190466,
-            -0.47393364928908943
-        ],
-        "rating": 0
+        "growth_percentage": [],
+        "rating": 0.476190476190466
+    },
+    {
+        "crypto_name": "Stacks",
+        "crypto_price": 0.558322,
+        "crypto_price_last": 0.558322,
+        "growth_percentage": [],
+        "rating": 0.06952586576681716
     },
     {
         "crypto_name": "Fantom",
-        "crypto_price": 0.265622,
-        "crypto_price_last": 0.265622,
-        "growth_percentage": [
-            -0.03298387912908784,
-            -0.05099190503506425,
-            -0.3567503085458691
-        ],
-        "rating": 0
-    },
-    {
-        "crypto_name": "Aave",
-        "crypto_price": 50.52,
-        "crypto_price_last": 50.52,
-        "growth_percentage": [
-            -0.15769761482357245,
-            -0.019743336623885513,
-            -0.23696682464454472
-        ],
-        "rating": 1
-    },
-    {
-        "crypto_name": "Optimism",
-        "crypto_price": 1.13,
-        "crypto_price_last": 1.13,
-        "growth_percentage": [
-            -0.8771929824561412
-        ],
+        "crypto_price": 0.269075,
+        "crypto_price_last": 0.269075,
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "USDD",
-        "crypto_price": 0.998233,
-        "crypto_price_last": 0.998233,
+        "crypto_price": 0.997788,
+        "crypto_price_last": 0.997788,
+        "growth_percentage": [],
+        "rating": 0.053987621910367246
+    },
+    {
+        "crypto_name": "Aave",
+        "crypto_price": 50.72,
+        "crypto_price_last": 50.72,
         "growth_percentage": [
-            -0.04274505328615913,
-            0.03234790725063441,
-            -0.06097060395938203
+            -0.1771304861247853
         ],
-        "rating": 0
+        "rating": 0.059078377313905354
+    },
+    {
+        "crypto_name": "Optimism",
+        "crypto_price": 1.14,
+        "crypto_price_last": 1.14,
+        "growth_percentage": [
+            0.8849557522123902
+        ],
+        "rating": 0.8849557522123902
     },
     {
         "crypto_name": "KuCoin",
-        "crypto_price": 7.38,
-        "crypto_price_last": 7.38,
-        "growth_percentage": [
-            -0.4048582995951451
-        ],
-        "rating": 4
+        "crypto_price": 7.42,
+        "crypto_price_last": 7.42,
+        "growth_percentage": [],
+        "rating": 0.13477088948786775
     },
     {
         "crypto_name": "The Sandbox",
-        "crypto_price": 0.381147,
-        "crypto_price_last": 0.381147,
-        "growth_percentage": [
-            -0.17266247095123352,
-            -0.10215678846228551,
-            -0.3156760488970989
-        ],
-        "rating": 2
+        "crypto_price": 0.38314,
+        "crypto_price_last": 0.38314,
+        "growth_percentage": [],
+        "rating": 0.0026084597566854825
     },
     {
         "crypto_name": "Render",
         "crypto_price": 1.9,
         "crypto_price_last": 1.9,
-        "growth_percentage": [
-            -0.5208333333333338,
-            0.5235602094240842,
-            -0.5208333333333338,
-            -0.5235602094240842
-        ],
-        "rating": 0
+        "growth_percentage": [],
+        "rating": 0.5263157894736847
     },
     {
         "crypto_name": "EOS",
-        "crypto_price": 0.625179,
-        "crypto_price_last": 0.625179,
-        "growth_percentage": [
-            -0.17608350207339024,
-            0.17272918485846625,
-            -0.553084675879965
-        ],
-        "rating": 2
+        "crypto_price": 0.628881,
+        "crypto_price_last": 0.628881,
+        "growth_percentage": [],
+        "rating": 0.2593313104748185
     },
     {
         "crypto_name": "WhiteBIT Token",
-        "crypto_price": 4.73,
-        "crypto_price_last": 4.73,
+        "crypto_price": 4.74,
+        "crypto_price_last": 4.74,
+        "growth_percentage": [
+            0.21141649048625338
+        ],
+        "rating": 0.21141649048625338
+    },
+    {
+        "crypto_name": "Tezos",
+        "crypto_price": 0.719564,
+        "crypto_price_last": 0.719564,
+        "growth_percentage": [],
+        "rating": 0.01428725992549475
+    },
+    {
+        "crypto_name": "Bitget Token",
+        "crypto_price": 0.475232,
+        "crypto_price_last": 0.475232,
+        "growth_percentage": [],
+        "rating": 0.019324117969546976
+    },
+    {
+        "crypto_name": "Theta Network",
+        "crypto_price": 0.654551,
+        "crypto_price_last": 0.654551,
+        "growth_percentage": [],
+        "rating": 0.02562635854020455
+    },
+    {
+        "crypto_name": "ImmutableX",
+        "crypto_price": 0.620441,
+        "crypto_price_last": 0.620441,
+        "growth_percentage": [],
+        "rating": 0.0849234319379874
+    },
+    {
+        "crypto_name": "Decentraland",
+        "crypto_price": 0.339079,
+        "crypto_price_last": 0.339079,
         "growth_percentage": [],
         "rating": 0
     },
     {
-        "crypto_name": "Tezos",
-        "crypto_price": 0.718349,
-        "crypto_price_last": 0.718349,
-        "growth_percentage": [
-            -0.10950974290161415,
-            0.03580314928941579,
-            -0.34902512953187664
-        ],
-        "rating": 1
-    },
-    {
-        "crypto_name": "Bitget Token",
-        "crypto_price": 0.475124,
-        "crypto_price_last": 0.475124,
-        "growth_percentage": [
-            0.043967510323941514,
-            -0.07675161914374722,
-            -0.014941234651035416
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "Theta Network",
-        "crypto_price": 0.652401,
-        "crypto_price_last": 0.652401,
-        "growth_percentage": [
-            -0.18770936814138636,
-            -0.23207049826631915,
-            -0.4230943582839947
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "ImmutableX",
-        "crypto_price": 0.619746,
-        "crypto_price_last": 0.619746,
-        "growth_percentage": [
-            -0.1153844919391197,
-            -0.19231541656290474,
-            -0.23695385516839962
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "Decentraland",
-        "crypto_price": 0.33717,
-        "crypto_price_last": 0.33717,
-        "growth_percentage": [
-            -0.14212629188967166,
-            -0.02569001308123765,
-            -0.4123272862602721
-        ],
-        "rating": 4
-    },
-    {
         "crypto_name": "Maker",
-        "crypto_price": 673.51,
-        "crypto_price_last": 673.51,
-        "growth_percentage": [
-            -0.06814511947615998,
-            0.06670916287411711,
-            -0.22369707564220184
-        ],
-        "rating": 2
+        "crypto_price": 672.11,
+        "crypto_price_last": 672.11,
+        "growth_percentage": [],
+        "rating": 0.014857295675027716
     },
     {
         "crypto_name": "BitDAO",
-        "crypto_price": 0.409501,
-        "crypto_price_last": 0.409501,
-        "growth_percentage": [
-            0.13223762686012966,
-            0.13987447913233644,
-            -0.17673185024839375
-        ],
-        "rating": 3
+        "crypto_price": 0.410951,
+        "crypto_price_last": 0.410951,
+        "growth_percentage": [],
+        "rating": 0.02603140311694869
     },
     {
         "crypto_name": "Radix",
-        "crypto_price": 0.057732,
-        "crypto_price_last": 0.057732,
-        "growth_percentage": [
-            0.03642924053707141,
-            0.38496887301229465,
-            -0.2712086924977187
-        ],
-        "rating": 2
+        "crypto_price": 0.058318,
+        "crypto_price_last": 0.058318,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Synthetix Network",
-        "crypto_price": 1.82,
-        "crypto_price_last": 1.82,
+        "crypto_price": 1.84,
+        "crypto_price_last": 1.84,
         "growth_percentage": [
-            -0.5464480874316944
+            0.5464480874316944
         ],
         "rating": 0
     },
     {
         "crypto_name": "Gemini Dollar",
-        "crypto_price": 1.0,
-        "crypto_price_last": 1.0,
+        "crypto_price": 0.999057,
+        "crypto_price_last": 0.999057,
         "growth_percentage": [
-            -0.09990009990008891
+            -0.09430000000000271
         ],
-        "rating": 4
+        "rating": 0.09999999999998899
     },
     {
         "crypto_name": "Axie Infinity",
-        "crypto_price": 4.81,
-        "crypto_price_last": 4.81,
+        "crypto_price": 4.85,
+        "crypto_price_last": 4.85,
         "growth_percentage": [
-            -0.2061855670103049,
-            -0.20661157024792948,
-            -0.41407867494824974
+            0.20661157024792948
         ],
-        "rating": 0
+        "rating": 0.414508217142161
     },
     {
         "crypto_name": "Gate",
         "crypto_price": 4.0,
         "crypto_price_last": 4.0,
-        "growth_percentage": [
-            -0.24999999999999467,
-            0.25062656641603476,
-            -0.24999999999999467,
-            0.25062656641603476
-        ],
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "NEO",
-        "crypto_price": 7.8,
-        "crypto_price_last": 7.8,
+        "crypto_price": 7.88,
+        "crypto_price_last": 7.88,
         "growth_percentage": [],
-        "rating": 0
+        "rating": 0.12690355329948969
     },
     {
         "crypto_name": "Terra Luna Classic",
-        "crypto_price": 9.35e-05,
-        "crypto_price_last": 9.35e-05,
-        "growth_percentage": [
-            -0.3516998827667114
-        ],
-        "rating": 2
-    },
-    {
-        "crypto_name": "GALA",
-        "crypto_price": 0.0219904,
-        "crypto_price_last": 0.0219904,
-        "growth_percentage": [
-            -0.15002462753673626,
-            -0.14242074536692323,
-            -0.33822750297642534
-        ],
-        "rating": 1
-    },
-    {
-        "crypto_name": "Curve DAO",
-        "crypto_price": 0.622902,
-        "crypto_price_last": 0.622902,
-        "growth_percentage": [
-            -0.15639617165198227,
-            0.04020135915830225,
-            -0.27313130795636564
-        ],
-        "rating": 1
-    },
-    {
-        "crypto_name": "cETH",
-        "crypto_price": 34.47,
-        "crypto_price_last": 34.47,
-        "growth_percentage": [
-            1.292976785189532
-        ],
+        "crypto_price": 9.322e-05,
+        "crypto_price_last": 9.322e-05,
+        "growth_percentage": [],
         "rating": 0
     },
     {
+        "crypto_name": "GALA",
+        "crypto_price": 0.02212393,
+        "crypto_price_last": 0.02212393,
+        "growth_percentage": [],
+        "rating": 0
+    },
+    {
+        "crypto_name": "Curve DAO",
+        "crypto_price": 0.62724,
+        "crypto_price_last": 0.62724,
+        "growth_percentage": [],
+        "rating": 0.022148958919258315
+    },
+    {
+        "crypto_name": "cETH",
+        "crypto_price": 34.52,
+        "crypto_price_last": 34.52,
+        "growth_percentage": [],
+        "rating": 0.2320858717725509
+    },
+    {
         "crypto_name": "Bitcoin SV",
-        "crypto_price": 25.71,
-        "crypto_price_last": 25.71,
-        "growth_percentage": [
-            -0.15509887553314908,
-            -0.11650485436893646,
-            -0.0388802488335848
-        ],
-        "rating": 3
+        "crypto_price": 25.69,
+        "crypto_price_last": 25.69,
+        "growth_percentage": [],
+        "rating": 0.03885003885004493
     },
     {
         "crypto_name": "PAX Gold",
-        "crypto_price": 1931.65,
-        "crypto_price_last": 1931.65,
-        "growth_percentage": [
-            -0.019131729715201877,
-            -0.010860627123630605,
-            -0.08948059874416918
-        ],
-        "rating": 2
+        "crypto_price": 1934.51,
+        "crypto_price_last": 1934.51,
+        "growth_percentage": [],
+        "rating": 0.026828878191732672
     },
     {
         "crypto_name": "BitTorrent",
-        "crypto_price": 5.12211e-07,
-        "crypto_price_last": 5.12211e-07,
-        "growth_percentage": [
-            0.021026645432353892,
-            0.0033090539609258863,
-            -0.3013085902144693
-        ],
-        "rating": 3
-    },
-    {
-        "crypto_name": "Injective",
-        "crypto_price": 6.01,
-        "crypto_price_last": 6.01,
+        "crypto_price": 5.1166e-07,
+        "crypto_price_last": 5.1166e-07,
         "growth_percentage": [],
-        "rating": 1
-    },
-    {
-        "crypto_name": "Flow",
-        "crypto_price": 0.459122,
-        "crypto_price_last": 0.459122,
-        "growth_percentage": [
-            0.6133587943267083,
-            -0.31008185644566266,
-            -0.8964437968809061
-        ],
-        "rating": 3
+        "rating": 0.11480765332376015
     },
     {
         "crypto_name": "Tether Gold",
-        "crypto_price": 1956.3,
-        "crypto_price_last": 1956.3,
-        "growth_percentage": [
-            0.03066355942597352,
-            -0.05773200089918265,
-            0.005623175662890617
-        ],
-        "rating": 2
+        "crypto_price": 1954.51,
+        "crypto_price_last": 1954.51,
+        "growth_percentage": [],
+        "rating": 0.08837893618325696
+    },
+    {
+        "crypto_name": "Injective",
+        "crypto_price": 6.06,
+        "crypto_price_last": 6.06,
+        "growth_percentage": [],
+        "rating": 0.16501650165017617
+    },
+    {
+        "crypto_name": "Flow",
+        "crypto_price": 0.463558,
+        "crypto_price_last": 0.463558,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "Klaytn",
-        "crypto_price": 0.151704,
-        "crypto_price_last": 0.151704,
-        "growth_percentage": [
-            -0.03813882532418166,
-            -0.04604717862357533,
-            -0.16058125148076594
-        ],
-        "rating": 2
+        "crypto_price": 0.152434,
+        "crypto_price_last": 0.152434,
+        "growth_percentage": [],
+        "rating": 0.055684029165330294
     },
     {
         "crypto_name": "XDC Network",
-        "crypto_price": 0.03320368,
-        "crypto_price_last": 0.03320368,
-        "growth_percentage": [
-            -0.25573538820438846,
-            0.4758531384222146,
-            -0.29643509176516863
-        ],
-        "rating": 1
+        "crypto_price": 0.0330013,
+        "crypto_price_last": 0.0330013,
+        "growth_percentage": [],
+        "rating": 0.049429531116072234
     },
     {
         "crypto_name": "Casper Network",
-        "crypto_price": 0.04032288,
-        "crypto_price_last": 0.04032288,
-        "growth_percentage": [
-            -0.14451663411664986,
-            -0.10161492497050802,
-            -0.10778769169104184
-        ],
+        "crypto_price": 0.04022493,
+        "crypto_price_last": 0.04022493,
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "Tokenize Xchange",
-        "crypto_price": 5.56,
-        "crypto_price_last": 5.56,
+        "crypto_price": 5.57,
+        "crypto_price_last": 5.57,
         "growth_percentage": [
-            0.1795332136445204,
-            -0.17921146953404637,
-            -0.17953321364453634
+            -0.17921146953404637
         ],
-        "rating": 0
+        "rating": 0.3597122302158357
     },
     {
         "crypto_name": "Kava",
-        "crypto_price": 0.76387,
-        "crypto_price_last": 0.76387,
-        "growth_percentage": [
-            -0.13747082324976037,
-            -0.06596211480275978,
-            -0.356247904711829
-        ],
-        "rating": 1
+        "crypto_price": 0.769969,
+        "crypto_price_last": 0.769969,
+        "growth_percentage": [],
+        "rating": 0.0190746584727827
     },
     {
         "crypto_name": "IOTA",
-        "crypto_price": 0.157026,
-        "crypto_price_last": 0.157026,
-        "growth_percentage": [
-            -0.11030460553425306,
-            -0.14913911823875284,
-            -0.19703055880409107
-        ],
-        "rating": 1
-    },
-    {
-        "crypto_name": "Pepe",
-        "crypto_price": 9.74686e-07,
-        "crypto_price_last": 9.74686e-07,
-        "growth_percentage": [
-            -1.1955374641941927,
-            -0.8513257142275852
-        ],
-        "rating": 1
+        "crypto_price": 0.157587,
+        "crypto_price_last": 0.157587,
+        "growth_percentage": [],
+        "rating": 0
     },
     {
         "crypto_name": "GMX",
-        "crypto_price": 48.4,
-        "crypto_price_last": 48.4,
+        "crypto_price": 48.7,
+        "crypto_price_last": 48.7,
         "growth_percentage": [
-            -0.20618556701031218
+            -0.2049180327868736
         ],
-        "rating": 3
+        "rating": 0.1436234401765497
     },
     {
         "crypto_name": "Huobi",
         "crypto_price": 2.61,
         "crypto_price_last": 2.61,
-        "growth_percentage": [
-            -0.3816793893129859,
-            0.3831417624521162,
-            -0.3816793893129859
-        ],
+        "growth_percentage": [],
         "rating": 0
     },
     {
         "crypto_name": "cUSDC",
-        "crypto_price": 0.02291096,
-        "crypto_price_last": 0.02291096,
-        "growth_percentage": [
-            -0.24429506102147291,
-            0.08457250694577712
-        ],
+        "crypto_price": 0.02287694,
+        "crypto_price_last": 0.02287694,
+        "growth_percentage": [],
         "rating": 0
     },
     {
-        "crypto_name": "Conflux",
-        "crypto_price": 0.185899,
-        "crypto_price_last": 0.185899,
-        "growth_percentage": [
-            -0.17136542475670685,
-            -0.14545610113476853,
-            -0.4428949369664612
-        ],
-        "rating": 2
+        "crypto_name": "Pepe",
+        "crypto_price": 9.73937e-07,
+        "crypto_price_last": 9.73937e-07,
+        "growth_percentage": [],
+        "rating": 0.18671374564411589
     },
     {
         "crypto_name": "eCash",
-        "crypto_price": 2.014e-05,
-        "crypto_price_last": 2.014e-05,
-        "growth_percentage": [
-            0.4488778054862885
-        ],
-        "rating": 3
+        "crypto_price": 2.003e-05,
+        "crypto_price_last": 2.003e-05,
+        "growth_percentage": [],
+        "rating": 0.09995002498750528
+    },
+    {
+        "crypto_name": "Conflux",
+        "crypto_price": 0.187132,
+        "crypto_price_last": 0.187132,
+        "growth_percentage": [],
+        "rating": 0.10243769707253629
     },
     {
         "crypto_name": "Frax Ether",
-        "crypto_price": 1709.27,
-        "crypto_price_last": 1709.27,
-        "growth_percentage": [
-            -0.15396099654754714,
-            0.026283818513156247,
-            -0.19036162870139448
-        ],
-        "rating": 3
-    },
-    {
-        "crypto_name": "Trust Wallet",
-        "crypto_price": 0.912734,
-        "crypto_price_last": 0.912734,
-        "growth_percentage": [
-            -0.27062507632455646,
-            -0.217568610644018,
-            0.007669854404251125
-        ],
-        "rating": 3
-    },
-    {
-        "crypto_name": "Mina Protocol",
-        "crypto_price": 0.413249,
-        "crypto_price_last": 0.413249,
-        "growth_percentage": [
-            -0.22705375527689114,
-            -0.2254031248193867,
-            -0.2584958486194352
-        ],
-        "rating": 3
-    },
-    {
-        "crypto_name": "Frax Share",
-        "crypto_price": 5.21,
-        "crypto_price_last": 5.21,
-        "growth_percentage": [
-            0.38387715930903,
-            -0.3824091778202765
-        ],
-        "rating": 4
+        "crypto_price": 1713.88,
+        "crypto_price_last": 1713.88,
+        "growth_percentage": [],
+        "rating": 0.127764586456957
     },
     {
         "crypto_name": "Kaspa",
-        "crypto_price": 0.02130226,
-        "crypto_price_last": 0.02130226,
-        "growth_percentage": [
-            0.7600028580974045,
-            1.7860616659878765,
-            0.27773514987812614
-        ],
-        "rating": 5
+        "crypto_price": 0.02133628,
+        "crypto_price_last": 0.02133628,
+        "growth_percentage": [],
+        "rating": 0.15857293744865916
+    },
+    {
+        "crypto_name": "Trust Wallet",
+        "crypto_price": 0.928106,
+        "crypto_price_last": 0.928106,
+        "growth_percentage": [],
+        "rating": 0
+    },
+    {
+        "crypto_name": "Mina Protocol",
+        "crypto_price": 0.416578,
+        "crypto_price_last": 0.416578,
+        "growth_percentage": [],
+        "rating": 0
+    },
+    {
+        "crypto_name": "Frax Share",
+        "crypto_price": 5.29,
+        "crypto_price_last": 5.29,
+        "growth_percentage": [],
+        "rating": 0.5692599620493406
     },
     {
         "crypto_name": "Chiliz",
-        "crypto_price": 0.066906,
-        "crypto_price_last": 0.066906,
-        "growth_percentage": [
-            -0.16356634102094983,
-            -0.09681118839458674,
-            -0.253443854731951
-        ],
-        "rating": 1
+        "crypto_price": 0.067218,
+        "crypto_price_last": 0.067218,
+        "growth_percentage": [],
+        "rating": 0.06839030047130487
     },
     {
         "crypto_name": "Sui",
-        "crypto_price": 0.675583,
-        "crypto_price_last": 0.675583,
-        "growth_percentage": [
-            -0.10285768023604866,
-            -0.18857045356930704,
-            -0.44019040040083734
-        ],
-        "rating": 3
+        "crypto_price": 0.67819,
+        "crypto_price_last": 0.67819,
+        "growth_percentage": [],
+        "rating": 0.11793422706818128
+    },
+    {
+        "crypto_name": "Bitcoin",
+        "crypto_price": 26313,
+        "crypto_price_last": 26313,
+        "growth_percentage": [],
+        "rating": 0.011386927806877705
     }
 ]

@@ -6,6 +6,9 @@ from watchdog.events import FileSystemEventHandler
 python = sys.executable
 process = subprocess.Popen([python, 'app.py'])
 
+subprocess.Popen([python, 'processes\\cryptochecker.py'])
+
+
 class BotRestartHandler(FileSystemEventHandler):
     def __init__(self, observer):
         super().__init__()

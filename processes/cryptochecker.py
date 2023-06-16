@@ -25,7 +25,8 @@ async def selectCryptoRateList():
     for crypto in data:
         growth_percentage = crypto["growth_percentage"]
         if(len(growth_percentage) >= 5):
-            for value in growth_percentage:
+            crypto["rating"] = 0
+            for value in growth_percentage[:5]:
                 if(value > 0): crypto["rating"] += 1
 
             crypto["growth_percentage"] = []

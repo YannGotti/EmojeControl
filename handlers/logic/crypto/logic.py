@@ -13,3 +13,6 @@ from states import *
 
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
+
+from processes.cryptochecker import selectLocalTopCrypto
+

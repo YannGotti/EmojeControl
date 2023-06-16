@@ -8,6 +8,8 @@ from messages import *
 from config import ADMINS
 from handlers.logic.basketball.logic import addChatToJson
 
+from keyboards.inline import cryptoKeyboard
+
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -23,3 +25,9 @@ async def anti_flood(*args, **kwargs):
 @dp.throttled(anti_flood, rate=5)
 async def start_command_handler(message: types.Message):
     await addChatToJson(message)
+
+
+@dp.message_handler(commands=['crypto'])
+@dp.throttled(anti_flood, rate=5)
+async def crypto_command_handler(message: types.Message):
+    await message.answer('Менеджер криптовалют', reply_markup=cryptoKeyboard)

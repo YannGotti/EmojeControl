@@ -10,7 +10,7 @@ from messages import *
 from config import ADMINS
 
 from keyboards.inline import *
-from handlers.logic.logic import setActiveGame, joinGameCallback, addChatToJson, getActiveGame, goGameCallback, setMessageIdGame
+from handlers.logic.basketball.logic import setActiveGame, joinGameCallback, addChatToJson, getActiveGame, goGameCallback, setMessageIdGame, resetAfterRoundData
 
 FILE_PATH_GAME = "data\\games_data.json"
 
@@ -41,6 +41,23 @@ async def startgame(message: types.Message):
     await setMessageIdGame(message.chat.id, mes.message_id)
 
 
+@dp.message_handler(commands=['closegame'], user_id=ADMINS)
+@dp.throttled(anti_flood, rate=0)
+async def closegame(message: types.Message):
+    await message.delete()
+    if (not await getActiveGame(message)):
+        mess = await message.answer("Вы не открыли игру!")
+        await asyncio.sleep(3)
+        await mess.delete()
+        return
+    
+    await resetAfterRoundData(message.chat.id, True)
+
+    mess = await message.answer("Игра была принудительно закончена!")
+    await asyncio.sleep(3)
+    await mess.delete()
+    
+
 
 @dp.callback_query_handler(lambda c: True)
 async def inline_button_handler(callback_query: types.CallbackQuery):
@@ -60,24 +77,3 @@ async def inline_button_handler(callback_query: types.CallbackQuery):
         await goGameCallback(callback_query)
 
 
-@dp.message_handler(commands=['ale'], user_id=ADMINS)
-async def admin_panel(message: types.Message):
-    await message.delete()
-    messages = []
-    for i in range(5):
-        messages.append(await message.answer("Я РУССКИЙ але)))"))
-
-    for mesg in messages:
-        await asyncio.sleep(0.3)
-        await mesg.delete()
-
-@dp.message_handler(commands=['perepere'])
-async def admin_panel(message: types.Message):
-    await message.delete()
-    messages = []
-    for i in range(2):
-        messages.append(await message.answer("пере пере пере @glavnoe_ctobi_ydobno_bilo)"))
-
-    for mesg in messages:
-        await asyncio.sleep(0.3)
-        await mesg.delete()

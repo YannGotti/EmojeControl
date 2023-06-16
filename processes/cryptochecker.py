@@ -6,17 +6,6 @@ cg = CoinGeckoAPI()
 FILE_DATA = "processes\\crypto_data.json"
 
 
-async def selectLocalTopCrypto(count):
-    data = None
-    with open(FILE_DATA, "r") as file:
-        data = json.load(file)
-
-    sorted_data = sorted(data, key=lambda x: x["rating"], reverse=True)
-
-    topValues = sorted_data[:count]
-
-    return topValues
-
 async def selectCryptoRateList():
     data = None
     with open(FILE_DATA, "r") as file:

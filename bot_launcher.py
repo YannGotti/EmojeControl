@@ -4,10 +4,10 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 python = sys.executable
-process = subprocess.Popen([python, 'app.py'])
-
-#subprocess.call([python, 'processes\\cryptochecker.py'])
-
+processes = [
+    subprocess.Popen([python, 'app.py']),
+    subprocess.Popen([python, 'processes\\cryptochecker.py'])
+]
 
 class BotRestartHandler(FileSystemEventHandler):
     def __init__(self, observer):
@@ -16,10 +16,16 @@ class BotRestartHandler(FileSystemEventHandler):
 
     def on_any_event(self, event):
         if event.src_path.endswith('.py'):
-            global process
-            process.kill()
-            process.wait()
-            process = subprocess.Popen([python, 'app.py'])
+            global processes
+
+            for process in processes:
+                process.kill()
+                process.wait()
+
+            processes = [
+                subprocess.Popen([python, 'app.py']),
+                subprocess.Popen([python, 'processes\\cryptochecker.py'])
+            ]
 
             
 

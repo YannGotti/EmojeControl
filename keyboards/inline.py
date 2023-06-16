@@ -20,3 +20,8 @@ cryptoKeyboard.add(
     types.InlineKeyboardButton("Криптовалюты в реальном времени", callback_data="cryptoOnline", parse_mode=types.ParseMode.HTML)
 
 )
+
+cryptoStopMonitoring  = types.InlineKeyboardMarkup(row_width=1)
+cryptoStopMonitoring.add(
+    types.InlineKeyboardButton("Остановить мониторинг", callback_data="stopMonitoring", parse_mode=types.ParseMode.HTML),
+)

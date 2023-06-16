@@ -59,21 +59,5 @@ async def closegame(message: types.Message):
     
 
 
-@dp.callback_query_handler(lambda c: True)
-async def inline_button_handler(callback_query: types.CallbackQuery):
-
-    if callback_query.data == "startGame" and callback_query.from_user.id in ADMINS:
-        await setActiveGame(callback_query, FILE_PATH_GAME, True)
-        await callback_query.answer("Вы запустили игру")
-
-    elif callback_query.data == "stopGame" and callback_query.from_user.id in ADMINS:
-        await setActiveGame(callback_query, FILE_PATH_GAME, False)
-        await callback_query.answer("Вы закончили игру")
-
-    elif callback_query.data == "joinGame":
-        await joinGameCallback(callback_query)
-
-    elif callback_query.data == "goGame" and callback_query.from_user.id in ADMINS:
-        await goGameCallback(callback_query)
 
 

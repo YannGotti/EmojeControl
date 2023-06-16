@@ -18,9 +18,9 @@
     },
     {
         "chat_id": -1001982372894,
-        "message_id": 874,
+        "message_id": 900,
         "invite_link": null,
-        "game_active": false,
+        "game_active": true,
         "game": [
             {
                 "players": [],

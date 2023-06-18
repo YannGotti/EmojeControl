@@ -1,5 +1,5 @@
 
-WEBAPP_URL = "https://telegram.mihailgok.ru"
+WEBAPP_URL = "https://833a-31-23-81-117.ngrok-free.app/"
 
 BOT_TOKEN = "6157538906:AAFmOh2StKK6PYYCJt54ia41kmvOGttRrOA"
 #PAYMENTS_PROVIDER_TOKEN = "331767678:TEST:31496"

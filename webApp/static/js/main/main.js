@@ -17,10 +17,9 @@ Telegram.WebApp.onEvent('mainButtonClicked', function(){
     tg.close()
 });
 
+let canvas = document.getElementById('canvas');
 
 function createCube(id, connect = false){
-    let canvas = document.getElementById('canvas');
-
     canvas.innerHTML += `<div id="cube_`+ id +`"></div>`
 
     // Получение элемента квадрата
@@ -32,9 +31,40 @@ function createCube(id, connect = false){
     square.style.backgroundColor = "red";
     square.style.position = "relative";
     if (connect){
-        setTimeout(() => userConnect(id), 1000);
-        startUpdate()
+        //setTimeout(() => userConnect(id), 1000);
+        setTimeout(() => CONNECT = true, 1000);
     }
+}
+
+
+function UpdateUser(data){
+
+    if (data.action){
+        DeleteUser(data.id)
+        return
+    }
+        
+
+    var square = document.getElementById('cube_' + data.id);
+
+    if (!square) {
+        square = document.createElement('div');
+        square.id = 'cube_' + data.id; 
+        square.style.position = "relative";
+        canvas.appendChild(square); 
+    }
+
+    // Настройка стилей и других свойств квадрата
+    square.style.width = data.width;
+    square.style.height = data.height;
+    square.style.backgroundColor = data.backgroundColor;
+    square.style.top = data.top;
+    square.style.left = data.left;
+}
+
+function DeleteUser(id){
+    var square = document.getElementById('cube_' + id);
+    canvas.removeChild(square);
 }
 
 

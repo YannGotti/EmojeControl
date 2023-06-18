@@ -15,16 +15,22 @@ socket.onmessage = function(event) {
             return
         }
 
-        if (data.status == 'move'){
+        /*if (data.status == 'move'){
             handleKeyPress(data.key, data.id)
             return
+        }*/
+
+        if (data.status == 'updateUser'){
+            UpdateUser(data);
+            return
         }
+        
 
         let textarea_one = document.getElementById('textarea_one')
 
         textarea_one.textContent += " " + data.username + ' : ' + data.text + ' ';
     } catch (e) {
-        alert('Error:', e.message);
+        console.log('Error:', e);
     }
 };
 
@@ -36,7 +42,6 @@ function userConnect(id){
     data = JSON.stringify(data)
 
     socket.send(data);
-    
 }
 
 function userMove(key, id){
@@ -48,6 +53,11 @@ function userMove(key, id){
     data = JSON.stringify(data)
 
     socket.send(data);
+}
+
+function userUpdate(data){
+    data.status = 'updateUser'
+    socket.send(JSON.stringify(data));
 }
 
 

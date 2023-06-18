@@ -47,17 +47,29 @@
 <script src="{% static 'js/main/updater.js' %}"></script>
 
 <script>
-let tg = window.Telegram.WebApp;
+//let tg = window.Telegram.WebApp;
 
-id = tg.initDataUnsafe.user.username
+//id = tg.initDataUnsafe.user.id
 
-//id = 123
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+id = getRandomInt(1, 100)
 
 let data = {
-    'id' : tg.initDataUnsafe.user.id,
-    'username': tg.initDataUnsafe.user.username,
-    'first_name' : tg.initDataUnsafe.user.first_name,
+    'id' : id,
+    'username': 'tg.initDataUnsafe.user.username',
+    'first_name' : 'tg.initDataUnsafe.user.first_name',
     'auth': true
+}
+
+let DATA_PLAYER = {
+    'id' : id,
+    'username': 'tg.initDataUnsafe.user.username'
 }
 
 

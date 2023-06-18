@@ -25,3 +25,6 @@ cryptoStopMonitoring  = types.InlineKeyboardMarkup(row_width=1)
 cryptoStopMonitoring.add(
     types.InlineKeyboardButton("Остановить мониторинг", callback_data="stopMonitoring", parse_mode=types.ParseMode.HTML),
 )
+
+
+                    

@@ -35,6 +35,7 @@ async def addCrypto(crypto_name, crypto_price):
         'crypto_price' : crypto_price,
         'crypto_price_last' : crypto_price,
         'growth_percentage' : [],
+        'last_prices' : [],
         'rating' : 0
     }
 
@@ -53,6 +54,8 @@ async def addCrypto(crypto_name, crypto_price):
                 if (growth_rate == 0.0): return
 
                 crypto["crypto_price_last"] = crypto["crypto_price"]
+
+                crypto["last_prices"].append(crypto["crypto_price"])
 
                 crypto["growth_percentage"].append(growth_rate)
 

@@ -13,7 +13,7 @@ from handlers.logic.basketball.logic import setActiveGame, joinGameCallback, add
 FILE_PATH_GAME = "data\\games_data.json"
 
 from keyboards.inline import cryptoKeyboard
-
+from keyboards.MenuWebApp import webApp, webAppInlineButon
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -35,6 +35,20 @@ async def start_command_handler(message: types.Message):
 @dp.throttled(anti_flood, rate=5)
 async def crypto_command_handler(message: types.Message):
     await message.answer('Менеджер криптовалют', reply_markup=cryptoKeyboard)
+
+@dp.message_handler(commands=['game'])
+@dp.throttled(anti_flood, rate=5)
+async def crypto_command_handler(message: types.Message):
+    if (message.chat.type == "supergroup"):
+        await message.answer('Присоединиться к игре возможно только в личном сообщении!\n@mildor_bot')
+        return
+    
+    await message.answer('Начать лучшую веб игру!', reply_markup=webAppInlineButon)
+
+    await bot.set_chat_menu_button(
+        chat_id=message.chat.id,
+        menu_button=types.MenuButtonWebApp(text="MildorGame", web_app=webApp),
+    )
 
 
 @dp.callback_query_handler(lambda c: True)

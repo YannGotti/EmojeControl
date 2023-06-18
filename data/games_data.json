@@ -18,7 +18,7 @@
     },
     {
         "chat_id": -1001982372894,
-        "message_id": 900,
+        "message_id": 1057,
         "invite_link": null,
         "game_active": true,
         "game": [
@@ -35,6 +35,23 @@
     },
     {
         "chat_id": 793228987,
+        "message_id": -1,
+        "invite_link": null,
+        "game_active": true,
+        "game": [
+            {
+                "players": [],
+                "rounds": [],
+                "stats": [],
+                "round": -1,
+                "action_user": 0,
+                "current_user": 0,
+                "current_fight": 0
+            }
+        ]
+    },
+    {
+        "chat_id": 875272633,
         "message_id": -1,
         "invite_link": null,
         "game_active": false,

@@ -11,14 +11,82 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-12 text-center">
+        <div class="col-6 text-center">
             <button class="btn btn-outline-light" onclick="showButton()" id="button_username">Отобразить</button>
         </div>
     </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 text-center">
+            <h2 class="text-light" id="text-b"></h2>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-8 text-center">
+            <input type="text" class="form-control" id="input_message">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-outline-light" onclick="sendMessage()">Отправить</button>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+        <div class="col-12 text-center">
+            <textarea class="form-control" id="textarea_one" rows="3"></textarea>
+        </div>
+    </div>
+
+</div>
+
+<div id="canvas" style="width: 300px; height: 300px;">
+
 </div>
 
 <script src="{% static 'js/telegram/telegram-web-app.js' %}"></script>
 <script src="{% static 'js/main/main.js' %}"></script>
+<script src="{% static 'js/main/webSocket.js' %}"></script>
+<script src="{% static 'js/main/updater.js' %}"></script>
+
+<script>
+let tg = window.Telegram.WebApp;
+
+id = tg.initDataUnsafe.user.username
+
+//id = 123
+
+let data = {
+    'id' : tg.initDataUnsafe.user.id,
+    'username': tg.initDataUnsafe.user.username,
+    'first_name' : tg.initDataUnsafe.user.first_name,
+    'auth': true
+}
+
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.isComposing || event.keyCode === 87) {
+        handleKeyPress("w", id, true)
+        return;
+    }
+    if (event.isComposing || event.keyCode === 65) {
+        handleKeyPress("a", id, true)
+        return;
+    }
+    if (event.isComposing || event.keyCode === 83) {
+        handleKeyPress("s", id, true)
+        return;
+    }
+    if (event.isComposing || event.keyCode === 68) {
+        handleKeyPress("d", id, true)
+        return;
+    }
+});
+
+createSocket(data);
+
+createCube(id, true);
+
+</script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 {% endblock %}

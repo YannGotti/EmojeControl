@@ -1,3 +1,9 @@
 body{
     background-color: var(--tg-theme-bg-color);
 }
+
+#mySquare {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}

@@ -114,7 +114,7 @@ class Square {
     }
 
     clearName(){
-        this.ctx.clearRect(this.x - (this.fontSize + 0.2), this.y - 20, this.fontSize * 5, this.fontSize);
+        this.ctx.clearRect(this.x + (this.size / 2) - (this.textWidth / 2), this.y - 20, this.textWidth + 5, this.fontSize);
     }
 
     updateData(data){

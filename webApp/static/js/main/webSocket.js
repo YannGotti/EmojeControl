@@ -3,6 +3,11 @@ let socket = new WebSocket("wss://"+ location.host +"/ws/");
 function createSocket(data){
     socket.onopen = function(e) {
         socket.send(JSON.stringify(data));
+
+
+        var square = new Square(data);
+        Squares.push(square)
+
         console.log('connect')
     };
 }
@@ -10,63 +15,36 @@ function createSocket(data){
 socket.onmessage = function(event) {
     try {
         let data = JSON.parse(event.data)
-        if (data.status == 'connect'){
-            createCube(data.id)
+        if (data.status == 'updateData'){
+            data = data.data;
+
+            let hasSquare = Squares.some(item => item.id === data.id);
+
+            if (!hasSquare){
+                Squares.push(new Square(data))
+            }
+
+            for (let square of Squares) {
+                
+                if (square.id == data.id){
+                    square.updateData(data);
+                }
+
+            }
+
+            
             return
         }
 
-        /*if (data.status == 'move'){
-            handleKeyPress(data.key, data.id)
-            return
-        }*/
-
-        if (data.status == 'updateUser'){
-            UpdateUser(data);
-            return
-        }
         
-
-        let textarea_one = document.getElementById('textarea_one')
-
-        textarea_one.textContent += " " + data.username + ' : ' + data.text + ' ';
     } catch (e) {
         console.log('Error:', e);
     }
 };
 
-function userConnect(id){
-    data = {
-        'id' : id,
-        'status' : 'connect'
-    }
-    data = JSON.stringify(data)
-
-    socket.send(data);
-}
-
-function userMove(key, id){
-    data = {
-        'id' : id,
-        'key': key,
-        'status' : 'move'
-    }
-    data = JSON.stringify(data)
-
-    socket.send(data);
-}
-
-function userUpdate(data){
-    data.status = 'updateUser'
+function updateData(data){
     socket.send(JSON.stringify(data));
 }
 
 
-function sendMessage(){
-    let input_message = document.getElementById('input_message')
-    data = {
-        'username' : tg.initDataUnsafe.user.username,
-        'text': input_message.value
-    }
-    socket.send(JSON.stringify(data));
-}
 

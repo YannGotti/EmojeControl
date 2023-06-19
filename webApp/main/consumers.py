@@ -5,45 +5,18 @@ import json
 
 sockets = []
 
-async def connectPlayer(self, data_player):
+
+async def updateData(self, data_user):
     global sockets
     for socket in sockets:
-
-        if (self != socket['socket']):
+        if (socket['socket'] != self):
             data = {
                 "type": "websocket.send",
                 "text": json.dumps
                 ({
-                    'status': 'connect',
-                    'id': data_player['id']
+                    'status': 'updateData',
+                    'data': data_user
                 })
-            }
-            await socket['socket'].send(data)
-
-async def movePlayer(self, data_player):
-    global sockets
-    for socket in sockets:
-
-        if (self != socket['socket']):
-            data = {
-                "type": "websocket.send",
-                "text": json.dumps
-                ({
-                    'status': 'move',
-                    'id': data_player['id'],
-                    'key': data_player['key']
-                })
-            }
-            await socket['socket'].send(data)
-
-async def updateUser(self, data_player):
-    global sockets
-    for socket in sockets:
-
-        if (self != socket['socket']):
-            data = {
-                "type": "websocket.send",
-                "text": json.dumps(data_player)
             }
             await socket['socket'].send(data)
 
@@ -71,42 +44,12 @@ class Dispatcher(AsyncConsumer):
 
         data = json.loads(event['text'])
 
-        if (data['status']):
-            if (data['status'] == 'connect'):
-                await connectPlayer(self, data)
-                return
-            
-            if (data['status'] == 'move'):
-                await movePlayer(self, data)
-                return
-            
-            if (data['status'] == 'updateUser'):
-                await updateUser(self, data)
-                return
-
-
-        for socket in sockets:
-
-            data = {
-                "type": "websocket.send",
-                "text": event['text']
-            }
-            await socket['socket'].send(data)
+        await updateData(self, data)
+        
 
     async def websocket_disconnect(self, event):
         global sockets
-
-        id = 0
-
-        for socket in sockets:
-            if (self == socket['socket']):
-                id = socket['id']
-
-        for socket in sockets:
-            socket['socket'].send({
-                    "type": "websocket.send",
-                    "text":{'id': id, 'status' : 'updateUser', 'action': 'delete'}
-                })
+        
 
         if (self in sockets):
             sockets.remove(self)

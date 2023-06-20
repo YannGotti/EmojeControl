@@ -23,6 +23,7 @@ let data = {
     'auth': true
 }
 
+
 function initCanvas(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

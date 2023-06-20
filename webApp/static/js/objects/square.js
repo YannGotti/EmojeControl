@@ -16,17 +16,16 @@ class Square {
         this.acceleration = 0.1;
         this.keysPressed = {};
 
-        this.moved = false
+        this.moved = false;
 
         this.fontSize = 12;
         this.textWidth = 0;
         
         this.canvas = canvas;
 
-        this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-        this.canvas.addEventListener('keydown', this.handleKeyDown);
-        this.canvas.addEventListener('keyup', this.handleKeyUp);
+        this.canvas.addEventListener('keydown', this.handleKeyDown.bind(this));
+
+        this.canvas.addEventListener('keyup', this.handleKeyUp.bind(this));
 
         this.canvas.setAttribute('tabindex', '0');
         this.canvas.focus();
@@ -98,7 +97,9 @@ class Square {
     }
     update() {
 
-        if (LOCAL_ID != this.id){return}
+        if (LOCAL_ID != this.id){
+            return
+        }
 
         this.clearSquare();
 
@@ -158,6 +159,12 @@ class Square {
         };
 
         return data;
+    }
+
+    disconnect(){
+        this.clearSquare();
+        Squares = Squares.filter(square => square.id !== this.id);
+        delete this;
     }
 }
 

@@ -49,10 +49,24 @@ class Dispatcher(AsyncConsumer):
 
     async def websocket_disconnect(self, event):
         global sockets
-        
+        id = 0
 
-        if (self in sockets):
-            sockets.remove(self)
+        for socket in sockets: 
+            if socket['socket'] == self:
+                id = socket['id']
+                sockets.remove(socket)
+
+        for socket in sockets:
+            data = {
+                "type": "websocket.send",
+                "text": json.dumps
+                ({
+                    'status': 'disconnectUser',
+                    'id': id
+                })
+            }
+            await socket['socket'].send(data)
+        
 
     
 

@@ -15,7 +15,21 @@ function createSocket(data){
 socket.onmessage = function(event) {
     try {
         let data = JSON.parse(event.data)
+
+        if (data.status == 'disconnectUser'){
+            let id = data.id;
+
+            for (let square of Squares) {
+                
+                if (square.id == id){
+                    square.disconnect();
+                }
+
+            }
+        }
+
         if (data.status == 'updateData'){
+
             data = data.data;
 
             let hasSquare = Squares.some(item => item.id === data.id);
@@ -31,8 +45,7 @@ socket.onmessage = function(event) {
                 }
 
             }
-
-            
+    
             return
         }
 

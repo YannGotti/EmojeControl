@@ -6,5 +6,11 @@ body{
     position: absolute;
     background-color: var(--tg-theme-bg-color);
     /*border: 1px solid black;*/
+
+    -webkit-user-select: none; /* Для WebKit браузеров (Chrome, Safari) */
+    -moz-user-select: none; /* Для Firefox */
+    -ms-user-select: none; /* Для Internet Explorer */
+    user-select: none; /* Стандартное свойство */
+    -webkit-touch-callout: none;
 }
 

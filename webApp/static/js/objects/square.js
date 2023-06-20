@@ -9,7 +9,7 @@ class Square {
         this.size = 20;
         this.color = 'red';
 
-        this.maxSpeed = 15;
+        this.maxSpeed = 5;
         this.minSpeed = 1;
 
         this.speed = 1;
@@ -20,12 +20,29 @@ class Square {
 
         this.fontSize = 12;
         this.textWidth = 0;
+
+        this.startTouchX = 0;
+        this.startTouchY = 0;
+
+        this.isSwiping = false;
+
+        this.hitbox = {}
         
         this.canvas = canvas;
 
         this.canvas.addEventListener('keydown', this.handleKeyDown.bind(this));
 
         this.canvas.addEventListener('keyup', this.handleKeyUp.bind(this));
+
+
+        this.canvas.addEventListener('touchmove', function(event) {
+            event.preventDefault();
+        }, { passive: false });
+
+
+        window.addEventListener('touchstart', this.handleTouchStart.bind(this));
+        window.addEventListener('touchmove', this.handleTouchMove.bind(this));
+        window.addEventListener('touchend', this.handleTouchEnd.bind(this));
 
         this.canvas.setAttribute('tabindex', '0');
         this.canvas.focus();
@@ -35,6 +52,29 @@ class Square {
         this.drawName()
 
         this.update();
+    }
+
+    borderChecker(){
+        const canvasWidth = this.canvas.width;
+        const canvasHeight = this.canvas.height;
+        const squareSize = this.size;
+
+
+        if (this.x < 0) {
+            this.clearSquare()
+            this.x = 0;
+        } else if (this.x > canvasWidth - squareSize) {
+            this.clearSquare()
+            this.x = canvasWidth - squareSize;
+        }
+
+        if (this.y < 10) {
+            this.clearSquare()
+            this.y = 0;
+        } else if (this.y > canvasHeight - squareSize) {
+            this.clearSquare()
+            this.y = canvasHeight - squareSize;
+        }
     }
 
     draw() {
@@ -55,6 +95,54 @@ class Square {
 
     handleKeyUp(event) {
         delete this.keysPressed[event.key];
+    }
+
+    handleTouchStart(event){
+        if (LOCAL_ID != this.id){
+            return
+        }
+
+        
+        this.isSwiping = true;
+
+        this.startTouchX = event.touches[0].clientX;
+        this.startTouchY = event.touches[0].clientY;
+    }
+
+    handleTouchMove(event){
+        if (!this.isSwiping) return;
+
+        this.moved = true;
+
+        this.clearSquare()
+        
+        this.startForce = event.touches[0].force;
+
+        if (this.startForce == 0.2){
+            alert(this.startForce)
+        }
+
+        this.touchMoveSquare(event);
+
+    }
+
+    touchMoveSquare(event){
+        const touchX = event.touches[0].clientX;
+        const touchY = event.touches[0].clientY;
+        const deltaX = touchX - this.startTouchX;
+        const deltaY = touchY - this.startTouchY;
+
+        this.x += (deltaX * this.speed / 10);
+        this.y += (deltaY * this.speed / 10);
+
+        this.startTouchX = touchX;
+        this.startTouchY = touchY;
+    }
+
+    handleTouchEnd(event){
+        this.isSwiping = false;
+        this.moved = false;
+
     }
 
 
@@ -95,7 +183,12 @@ class Square {
             this.moved = false;
         }
     }
+
+
+
     update() {
+
+        this.borderChecker()
 
         if (LOCAL_ID != this.id){
             return
@@ -103,13 +196,42 @@ class Square {
 
         this.clearSquare();
 
-        this.moveSquare()
+        this.moveSquare();
+
+        this.hitbox = this.getHitbox()
+
+        this.checkCollisions();
 
         this.drawSquare();
 
         updateData(this.toJson())
 
         requestAnimationFrame(this.update.bind(this));
+    }
+
+
+
+    getHitbox(){
+        let hitbox = {
+            'topLeft' :{
+                'x' : this.x,
+                'y' : this.y
+            },
+            'topRight' : {
+                'x' : this.x + this.size,
+                'y': this.y
+            },
+            'botLeft': {
+                'x': this.x,
+                'y' : this.y + this.size
+            },
+            'botRight' : {
+                'x': this.x + this.size,
+                'y' : this.y + this.size 
+            }
+        }
+
+        return hitbox
     }
     
     clear() {
@@ -120,7 +242,41 @@ class Square {
         this.ctx.clearRect(this.x + (this.size / 2) - (this.textWidth / 2), this.y - 20, this.textWidth + 5, this.fontSize);
     }
 
+    checkCollisions(){
+        for (const square of Squares) {
+            if (this.id === square.id) continue;
+
+            if (
+                this.hitbox.topLeft.x < square.hitbox.botRight.x &&
+                this.hitbox.topRight.x > square.hitbox.botLeft.x &&
+                this.hitbox.topLeft.y < square.hitbox.botRight.y &&
+                this.hitbox.botLeft.y > square.hitbox.topRight.y
+            ) {
+                if (this.hitbox.botLeft.y > square.hitbox.topLeft.y && this.hitbox.botLeft.y < square.hitbox.topLeft.y + 10) {
+                    this.y = square.hitbox.topLeft.y - this.size - 1;
+                } 
+
+                if (this.hitbox.topRight.x > square.hitbox.topLeft.x && this.hitbox.topRight.x < square.hitbox.topLeft.x + 10){
+                    this.x = square.hitbox.topLeft.x - this.size - 1;
+                }
+
+                if (this.hitbox.topRight.y < square.hitbox.botLeft.y && this.hitbox.topRight.y > square.hitbox.botLeft.y - 10){
+                    this.y = square.hitbox.topLeft.y + this.size + 1;
+                }
+
+                if (this.hitbox.topLeft.x < square.hitbox.topRight.x && this.hitbox.topLeft.x > square.hitbox.topRight.x - 10){
+                    this.x = square.hitbox.topLeft.x + this.size + 1;
+                }
+
+
+
+            }
+
+        }
+    }
+
     updateData(data){
+
         if (data.id != this.id){
             return
         }
@@ -132,6 +288,7 @@ class Square {
         this.speed = data.speed;
         this.keysPressed = data.keysPressed;
         this.moved = data.moved;
+        this.hitbox = data.hitbox
 
         this.drawSquare();
     }
@@ -156,6 +313,7 @@ class Square {
             'speed': this.speed,
             'keysPressed' : this.keysPressed,
             'moved' : this.moved,
+            'hitbox' : this.hitbox
         };
 
         return data;

@@ -58,13 +58,8 @@ class Square {
         delete this.keysPressed[event.key];
     }
 
-    update() {
 
-        if (LOCAL_ID != this.id){return}
-
-        this.clear();
-        this.clearName();
-
+    moveSquare(){
         if (this.moved){
             this.speed += this.acceleration;
         }
@@ -100,9 +95,16 @@ class Square {
         if (JSON.stringify(this.keysPressed) == '{}'){
             this.moved = false;
         }
+    }
+    update() {
 
-        this.draw();
-        this.drawName();
+        if (LOCAL_ID != this.id){return}
+
+        this.clearSquare();
+
+        this.moveSquare()
+
+        this.drawSquare();
 
         updateData(this.toJson())
 
@@ -122,8 +124,7 @@ class Square {
             return
         }
 
-        this.clear();
-        this.clearName();
+        this.clearSquare();
 
         this.x = data.x;
         this.y = data.y;
@@ -131,6 +132,16 @@ class Square {
         this.keysPressed = data.keysPressed;
         this.moved = data.moved;
 
+        this.drawSquare();
+    }
+
+
+    clearSquare(){
+        this.clear();
+        this.clearName();
+    }
+
+    drawSquare(){
         this.draw();
         this.drawName();
     }

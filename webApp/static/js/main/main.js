@@ -1,10 +1,10 @@
 
 
-let tg = window.Telegram.WebApp;
-tg.expand();
+//let tg = window.Telegram.WebApp;
+//tg.expand();
 
 
-LOCAL_ID = tg.initDataUnsafe.user.id
+//LOCAL_ID = tg.initDataUnsafe.user.id
 
 var canvas = document.getElementById('my_canvas');
 
@@ -16,12 +16,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
   
-//LOCAL_ID = getRandomInt(1, 100)
+LOCAL_ID = getRandomInt(1, 100)
 
 let data = {
     'id' : LOCAL_ID,
-    'username': tg.initDataUnsafe.user.username,
-    'first_name' : tg.initDataUnsafe.user.first_name,
+    'username': LOCAL_ID,
+    'first_name' : 'tg.initDataUnsafe.user.first_name',
     'auth': true
 }
 

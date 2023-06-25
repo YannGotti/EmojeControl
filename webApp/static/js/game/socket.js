@@ -57,6 +57,19 @@ socket.onmessage = function(event) {
             return
         }
 
+        if (data.status == 'damageUser'){
+            data = data.data;
+            let id = data.id;
+
+            for (let player of PLAYERS) {
+                
+                if (player.id == id){
+                    player.health -= data.damage;
+                }
+
+            }
+        }
+
         if (data.status == 'disconnectUser'){
             let id = data.id;
 
@@ -77,7 +90,10 @@ socket.onmessage = function(event) {
     }
 };
 
-
 function sendData(data){
+    socket.send(JSON.stringify(data));
+}
+
+function sendDamage(data){
     socket.send(JSON.stringify(data));
 }

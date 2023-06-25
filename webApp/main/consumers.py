@@ -20,6 +20,21 @@ async def updateData(self, data_user):
             }
             await socket['socket'].send(data)
 
+
+async def updateDamage(self, data_user):
+    global sockets
+    for socket in sockets:
+        if (socket['socket'] != self):
+            data = {
+                "type": "websocket.send",
+                "text": json.dumps
+                ({
+                    'status': 'damageUser',
+                    'data': data_user
+                })
+            }
+            await socket['socket'].send(data)
+
 class Dispatcher(AsyncConsumer):
 
     async def websocket_connect(self, event):       
@@ -44,7 +59,15 @@ class Dispatcher(AsyncConsumer):
 
         data = json.loads(event['text'])
 
-        await updateData(self, data)
+        if (data["status"] == 'damageUser'):
+            await updateDamage(self, data)
+            return
+        
+        if (data["status"] == 'updateData'):
+            await updateData(self, data)
+            return
+        
+
         
 
     async def websocket_disconnect(self, event):

@@ -4,7 +4,12 @@ class Player extends CustomObject {
         this.id = data.id;
         this.username = data.username;
 
-        this.posY = 310;
+        this.width = 65;
+        this.height = 55;
+
+        this.health = 100;
+
+        this.damage = 10;
 
         this.maxSpeed = 15;
         this.minSpeed = 1;
@@ -25,7 +30,10 @@ class Player extends CustomObject {
         this.cooldown = false;
 
         this.spawnHeight = 310;
+        this.posY = this.spawnHeight;
         this.jumpHeight = this.posY - 100;
+
+
 
         this.canvas.addEventListener('keydown', this.handleKeyDown.bind(this));
         this.canvas.addEventListener('keyup', this.handleKeyUp.bind(this));
@@ -46,6 +54,8 @@ class Player extends CustomObject {
         this.left = false;
 
         this.timestamp = 0;
+
+        this.hitbox = {}
 
         this.connected();
         this.update();
@@ -79,6 +89,8 @@ class Player extends CustomObject {
                 this.currentAnimation = 'Run';
                 this.frameRate = 30;
             }
+
+            this.attackCheck();
             
             this.attack = true;
 
@@ -196,16 +208,16 @@ class Player extends CustomObject {
 
     update(timestamp) {
 
-        
 
         this.timestamp = timestamp;
+
 
         if (LOCAL_ID == this.id){
             this.move(timestamp);
             sendData(this.toJson())
         }
-        
 
+        this.getHitbox();
 
         try {
             this.updateAnimation(timestamp);
@@ -230,7 +242,7 @@ class Player extends CustomObject {
             setTimeout(() => {
                 this.attack = false;
                 this.currentAnimation = 'Idle';
-            }, 200);
+            }, 500);
         }
 
         if (elapsedTime > this.frameDelay) {
@@ -255,6 +267,11 @@ class Player extends CustomObject {
             if (this.currentAnimation == "Attack_1"){
                 this.drawAnimationAttack_1();
             }
+
+            if (LOCAL_ID == this.id){
+                this.drawHealth();
+            }
+
 
             this.lastFrameTime = timestamp;
         }
@@ -348,6 +365,78 @@ class Player extends CustomObject {
         this.currentFrameIndex = (this.currentFrameIndex + 1) % this.animations.attack_1.length;
     }
 
+    drawHealth(){
+        this.ctx.fillStyle = 'red';
+        this.ctx.strokeStyle = 'red';
+        this.ctx.fillRect(10, 10, this.health, 20);
+        this.ctx.strokeRect(9, 9, 100, 20);
+    }
+
+    attackCheck(){
+        for (const player of PLAYERS) {
+            if (LOCAL_ID != player.id) {
+
+                let is_hit = false;
+
+                let x = player.posX + player.width;
+
+                if (this.left){
+                    console.log(this.left, this.posX - 15, x)
+
+                    if(this.posX - 15 < x && this.posX - 15 > player.posX){
+                        is_hit = true;
+                    }
+                }
+                else
+                {
+                    console.log(this.left, this.posX + this.width + 15, player.posX)
+
+                    if(this.posX + this.width + 10 > player.posX && this.posX + this.width + 10 < player.posX + player.width){
+                        is_hit = true;
+                    }
+                }
+
+                if (is_hit){
+                    player.health -= this.damage;
+
+                    data = {
+                        'id' : player.id,
+                        'damage' : player.damage,
+                        'status' : 'damageUser'
+                    }
+
+                    sendDamage(data);
+                }
+
+                
+            }
+
+        
+        }
+    }
+
+    getHitbox(){
+        this.hitbox = {
+            'topLeft' :{
+                'x' : this.posX,
+                'y' : this.posY
+            },
+            'topRight' : {
+                'x' : this.posX + this.width,
+                'y': this.posY
+            },
+            'botLeft': {
+                'x': this.posX,
+                'y' : this.posY + this.height
+            },
+            'botRight' : {
+                'x': this.posX + this.width,
+                'y' : this.posY + this.height 
+            }
+        }
+    }
+
+
     dataUpdate(data){
         if (data.id != this.id){
             return
@@ -368,14 +457,7 @@ class Player extends CustomObject {
         this.frameRate = data.frameRate,
         this.keysPressed = data.keysPressed
         this.animations = playerAnimations;
-        //this.timestamp = data.timestamp;
-
-        try {
-            this.updateAnimation(this.timestamp);
-        } catch (error) {
-            this.currentFrameIndex = 0;
-            this.animations = loadAnimations();
-        }
+        
     }
 
     toJson(){
@@ -393,7 +475,8 @@ class Player extends CustomObject {
             'currentAnimation' : this.currentAnimation,
             'frameRate': this.frameRate,
             'keysPressed' : this.keysPressed,
-            'left' : this.left
+            'left' : this.left,
+            'status' : 'updateData'
         };
 
         return data;

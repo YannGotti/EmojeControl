@@ -1,6 +1,7 @@
 let socket = new WebSocket("wss://"+ location.host +"/ws/");
-
 let containers_canvas = document.getElementById("containers_canvas");
+
+PLAYERS = []
 
 function initCanvas(canvas){
     canvas.width = 670;
@@ -24,7 +25,7 @@ function openSocket(data){
         data.tabIndex = 1;
 
         let player = new Player(createCanvas(data.id), data)
-        console.log(player);
+        PLAYERS.push(player);
 
         console.log('connect')
     };
@@ -34,10 +35,38 @@ socket.onmessage = function(event) {
     try {
         let data = JSON.parse(event.data)
 
+
+        if (data.status == 'updateData'){
+            data = data.data;
+
+            let hasPlayer = PLAYERS.some(item => item.id === data.id);
+
+            if (!hasPlayer){
+                data.tabIndex = PLAYERS.length + 1;
+                PLAYERS.push(new Player(createCanvas(data.id), data))
+            }
+
+            for (let player of PLAYERS) {
+                
+                if (player.id == player.id){
+                    player.dataUpdate(data);
+                }
+
+            }
+    
+            return
+        }
+
         if (data.status == 'disconnectUser'){
             let id = data.id;
 
+            for (let player of PLAYERS) {
+                
+                if (player.id == id){
+                    player.remove();
+                }
 
+            }
         }
 
 
@@ -47,3 +76,8 @@ socket.onmessage = function(event) {
         console.log('Error:', e);
     }
 };
+
+
+function sendData(data){
+    socket.send(JSON.stringify(data));
+}

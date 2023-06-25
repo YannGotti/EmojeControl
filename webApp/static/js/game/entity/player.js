@@ -35,7 +35,7 @@ class Player extends CustomObject {
         this.canvas.focus();
 
         this.animations = playerAnimations;
-        this.frameRate = 30;
+        this.frameRate = 24;
         this.frameDelay = 1000 / this.frameRate;
         this.lastFrameTime = 0;
 
@@ -45,7 +45,22 @@ class Player extends CustomObject {
         this.currentFrameIndex = 0;
         this.left = false;
 
+        this.timestamp = 0;
+
+        this.connected();
         this.update();
+    }
+
+    connected(){
+
+        for (let player of PLAYERS) {
+                
+            if (LOCAL_ID == player.id){
+                containers_canvas.appendChild(player.canvas);
+            }
+        }
+
+        console.log(this.username + " connected")
     }
 
     handleKeyDown(event) {
@@ -72,6 +87,7 @@ class Player extends CustomObject {
     }
 
     handleKeyUp(event) {
+
         delete this.keysPressed[event.code];
     }
 
@@ -180,11 +196,16 @@ class Player extends CustomObject {
 
     update(timestamp) {
 
-        if (LOCAL_ID != this.id){
-            return
-        }
+        
 
-        this.move(timestamp);
+        this.timestamp = timestamp;
+
+        if (LOCAL_ID == this.id){
+            this.move(timestamp);
+            sendData(this.toJson())
+        }
+        
+
 
         try {
             this.updateAnimation(timestamp);
@@ -192,6 +213,7 @@ class Player extends CustomObject {
             this.currentFrameIndex = 0;
             this.animations = loadAnimations();
         }
+
 
         requestAnimationFrame(this.update.bind(this));
     }
@@ -324,6 +346,66 @@ class Player extends CustomObject {
         const currentImage = this.animations.attack_1[this.currentFrameIndex];
         this.ctx.drawImage(currentImage, this.posX, this.posY + 10);
         this.currentFrameIndex = (this.currentFrameIndex + 1) % this.animations.attack_1.length;
+    }
+
+    dataUpdate(data){
+        if (data.id != this.id){
+            return
+        }
+
+        this.posX = data.posX,
+        this.posY = data.posY,
+        this.width = data.width,
+        this.height = data.height,
+        this.id = data.id,
+        this.username = data.username,
+        this.moved = data.moved,
+        this.jump = data.jump,
+        this.fall = data.fall,
+        this.speed = data.speed,
+        this.left = data.left,
+        this.currentAnimation = data.currentAnimation,
+        this.frameRate = data.frameRate,
+        this.keysPressed = data.keysPressed
+        this.animations = playerAnimations;
+        //this.timestamp = data.timestamp;
+
+        try {
+            this.updateAnimation(this.timestamp);
+        } catch (error) {
+            this.currentFrameIndex = 0;
+            this.animations = loadAnimations();
+        }
+    }
+
+    toJson(){
+        let data = {
+            'posX' : this.posX,
+            'posY': this.posY,
+            'width' : this.width,
+            'height': this.height,
+            'id': this.id,
+            'username': this.username,
+            'moved': this.moved,
+            'jump' : this.jump,
+            'fall' : this.attack,
+            'speed' : this.speed,
+            'currentAnimation' : this.currentAnimation,
+            'frameRate': this.frameRate,
+            'keysPressed' : this.keysPressed,
+            'left' : this.left
+        };
+
+        return data;
+    }
+
+    remove(){
+        this.clear();
+        this.canvas.remove();
+
+        PLAYERS = PLAYERS.filter(player => player.id !== this.id);
+
+        delete this;
     }
     
 }

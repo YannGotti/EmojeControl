@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'css/main/main.css' %}" rel="stylesheet">
+
+<div class="row d-flex justify-content-center" id="containers_canvas">
+</div>
+
+<script src="{% static 'js/game/animations/playerAnim.js' %}"></script>
+
+<script src="{% static 'js/game/entity/object.js' %}"></script>
+<script src="{% static 'js/game/entity/player.js' %}"></script>
+
+<script src="{% static 'js/game/socket.js' %}"></script>
+<script src="{% static 'js/game/server.js' %}"></script>
+
+{% endblock %}

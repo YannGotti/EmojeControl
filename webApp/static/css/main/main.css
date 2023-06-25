@@ -5,7 +5,7 @@ body{
 .custom_canvas{
     position: absolute;
     background-color: var(--tg-theme-bg-color);
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 
     -webkit-user-select: none; /* Для WebKit браузеров (Chrome, Safari) */
     -moz-user-select: none; /* Для Firefox */

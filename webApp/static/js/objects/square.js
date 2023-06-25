@@ -1,7 +1,7 @@
 let Squares = []
 
 class Square {
-    constructor(data) {
+    constructor(data, client_canvas) {
         this.id = data.id;
         this.username = data.username;
         this.x = 50;
@@ -26,9 +26,11 @@ class Square {
 
         this.isSwiping = false;
 
+        this.tabIndex = data.tabIndex;
+
         this.hitbox = {}
         
-        this.canvas = canvas;
+        this.canvas = client_canvas;
 
         this.canvas.addEventListener('keydown', this.handleKeyDown.bind(this));
 
@@ -44,14 +46,29 @@ class Square {
         window.addEventListener('touchmove', this.handleTouchMove.bind(this));
         window.addEventListener('touchend', this.handleTouchEnd.bind(this));
 
-        this.canvas.setAttribute('tabindex', '0');
+
+        this.canvas.setAttribute('tabindex', this.tabIndex);
         this.canvas.focus();
 
-        this.ctx = ctx;
+        this.ctx = this.canvas.getContext('2d');
         this.draw()
         this.drawName()
 
+        this.connected()
+
         this.update();
+    }
+
+    connected(){
+
+        for (let square of Squares) {
+                
+            if (LOCAL_ID == square.id){
+                containers_canvas.appendChild(square.canvas);
+            }
+        }
+
+        console.log(this.username + " connected")
     }
 
     borderChecker(){
@@ -118,10 +135,6 @@ class Square {
         
         this.startForce = event.touches[0].force;
 
-        if (this.startForce == 0.2){
-            alert(this.startForce)
-        }
-
         this.touchMoveSquare(event);
 
     }
@@ -142,7 +155,6 @@ class Square {
     handleTouchEnd(event){
         this.isSwiping = false;
         this.moved = false;
-
     }
 
 
@@ -268,8 +280,6 @@ class Square {
                     this.x = square.hitbox.topLeft.x + this.size + 1;
                 }
 
-
-
             }
 
         }
@@ -295,8 +305,10 @@ class Square {
 
 
     clearSquare(){
-        this.clear();
-        this.clearName();
+        //this.clear();
+        //this.clearName();
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
     }
 
     drawSquare(){
@@ -313,7 +325,7 @@ class Square {
             'speed': this.speed,
             'keysPressed' : this.keysPressed,
             'moved' : this.moved,
-            'hitbox' : this.hitbox
+            'hitbox' : this.hitbox,
         };
 
         return data;
@@ -321,6 +333,7 @@ class Square {
 
     disconnect(){
         this.clearSquare();
+        this.canvas.remove();
         Squares = Squares.filter(square => square.id !== this.id);
         delete this;
     }

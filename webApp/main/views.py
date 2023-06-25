@@ -8,8 +8,12 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'home.html')
 
-
 class MainPage(View):
     def get(self, request):
         return render(request, 'main/index.html')
+
+
+class GamePage(View):
+    def get(self, request):
+        return render(request, 'main/game.html')
 

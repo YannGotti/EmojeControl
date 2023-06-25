@@ -16,5 +16,5 @@ let data = {
 }
 
 
-console.log(loadAnimations());
-openSocket(data)
+loadAnimations();
+openSocket(data);
